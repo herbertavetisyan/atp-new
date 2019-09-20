@@ -4,9 +4,6 @@ namespace App\Entity;
 
 use App\Entity\Base\BaseEntity;
 use App\Entity\Base\LangEntity;
-use App\Entity\Base\TextBottomEntity;
-use App\Entity\Base\TextTopEntity;
-use App\Entity\Base\TitleEntity;
 use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SlideLangRepository")
@@ -14,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class SlideLang
 {
-    use LangEntity, TextBottomEntity, TextTopEntity, BaseEntity;
+    use LangEntity, BaseEntity;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

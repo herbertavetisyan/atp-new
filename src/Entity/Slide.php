@@ -18,7 +18,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Slide
 {
-    use BaseEntityVirtual, ImageEntity, TimestampableEntity, TextBottomEntityVirtual, TextTopVirtualEntity;
+    use BaseEntityVirtual, ImageEntity, TimestampableEntity;
 
     /**
      * @ORM\Id()

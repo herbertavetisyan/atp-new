@@ -85,23 +85,23 @@ easy_admin:
                 title: "Event"
                 fields:
                     - { property: 'id' }
-                    - { property: 'title'  }
-                    - { property: 'text'  }
+                    - { property: 'title' }
+                    - { property: 'text', label: 'description' }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
                     - { property: 'is_active', label: 'isActive', type: 'toggle' }
             show:
                 fields:
                     - { property: 'id' }
                     - { property: 'title'  }
-                    - { property: 'text'  }
+                    - { property: 'text', label: 'description' }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
                     - { property: 'is_active', label: 'isActive', type: 'toggle' }
             form:
                 fields:
-                    - { property: 'title' , type: 'fos_ckeditor' }
-                    - { property: 'location' , type: 'fos_ckeditor' }
-                    - { property: 'linkText' , type: 'fos_ckeditor' }
-                    - { property: 'text' , type: 'fos_ckeditor' }
+                    - { property: 'title'  }
+                    - { property: 'location' }
+                    - { property: 'linkText', label: 'link' }
+                    - { property: 'text' , type: 'fos_ckeditor', label: 'description' }
                     - { property: 'startDate' }
                     - { property: 'endDate' }
                     - { property: 'imageFile', type: 'vich_image' }
@@ -112,9 +112,9 @@ easy_admin:
 
         Slide:
             class: App\Entity\Slide
-            label: 'Slide'
+            label: 'Home Page Slider'
             list:
-                title: "Slide"
+                title: "Home Page Slider"
                 fields:
                     - { property: 'id' }
                     - { property: 'title'  }
@@ -123,15 +123,13 @@ easy_admin:
                 fields:
                     - { property: 'id' }
                     - { property: 'title'  }
-                    - { property: 'text_top'  }
-                    - { property: 'text_bottom'  }
+                    - { property: 'text', label: 'subtitle' }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
 
             form:
                 fields:
-                    - { property: 'title' , type: 'fos_ckeditor' }
-                    - { property: 'text_top' , type: 'fos_ckeditor' }
-                    - { property: 'text_bottom' , type: 'fos_ckeditor' }
+                    - { property: 'title' }
+                    - { property: 'text' , type: 'fos_ckeditor', label: 'subtitle' }
                     - { property: 'imageFile', type: 'vich_image' }
             search:
                 fields:
