@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\Base\BaseEntityVirtual;
-use App\Entity\Base\ImageEntity;
+use App\Entity\Base\PdfEntity;
 use App\Entity\Base\TimestampableEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -17,7 +17,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Lessons
 {
-    use BaseEntityVirtual, TimestampableEntity, ImageEntity;
+    use BaseEntityVirtual, TimestampableEntity, PdfEntity;
 
     /**
      * @ORM\Id()
@@ -40,18 +40,6 @@ class Lessons
     public $entityLang;
 
     /**
-     * @Vich\UploadableField(mapping="images", fileNameProperty="pdfName")
-     * @var File
-     */
-    private $pdfFile;
-
-    /**
-     * @ORM\Column(type="string", length=256, nullable=true)
-     * @var string
-     */
-    private $pdfName;
-
-    /**
      * Country constructor.
      */
     public function __construct()
@@ -67,38 +55,6 @@ class Lessons
     public function __toString()
     {
         return $this->title;
-    }
-
-    /**
-     * @return File
-     */
-    public function getPdfFile()
-    {
-        return $this->pdfFile;
-    }
-
-    /**
-     * @param File $pdfFile
-     */
-    public function setPdfFile($pdfFile)
-    {
-        $this->pdfFile = $pdfFile;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPdfName()
-    {
-        return $this->pdfName;
-    }
-
-    /**
-     * @param string $pdfName
-     */
-    public function setPdfName($pdfName)
-    {
-        $this->pdfName = $pdfName;
     }
 
     /**

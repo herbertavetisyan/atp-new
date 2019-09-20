@@ -40,23 +40,22 @@ easy_admin:
 
         Lessons:
             class: App\Entity\Lessons
-            label: 'Lessons'
+            label: 'Sample Lessons'
             list:
-                title: "Lessons"
+                title: "Sample Lessons"
                 fields:
                     - { property: 'id' }
-                    - { property: 'pdfName'  }
-                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+                    - { property: 'title' }
+                    - { property: 'pdf' }
             show:
                 fields:
                     - { property: 'id' }
-                    - { property: 'pdfName'  }
-                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+                    - { property: 'title' }
+                    - { property: 'pdfName' }
 
             form:
                 fields:
-                    - { property: 'imageFile', type: 'vich_image'  }
-                    - { property: 'pdfName' }
+                    - { property: 'title' }
                     - { property: 'pdfFile', type: 'vich_image' }
 
         Gallery:
