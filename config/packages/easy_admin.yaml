@@ -11,25 +11,28 @@ easy_admin:
                 fields:
                     - { property: 'id' }
                     - { property: 'title' }
-                    - { property: 'text' }
+                    - { property: 'text', label: 'description' }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+                    - { property: 'createdAt' }
             show:
                 fields:
                     - { property: 'id' }
                     - { property: 'title'  }
-                    - { property: 'text'  }
+                    - { property: 'text', label: 'description'  }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+                    - { property: 'createdAt' }
 
             form:
                 fields:
-                    - { property: 'title' , type: 'fos_ckeditor' }
-                    - { property: 'text' , type: 'fos_ckeditor' }
+                    - { property: 'title' }
+                    - { property: 'text' , type: 'fos_ckeditor', label: 'description' }
                     - { property: 'caption' }
                     - { property: 'imageFile', type: 'vich_image' }
                     - { property: 'pdf' }
                     - { property: 'pdfFile', type: 'vich_image' }
                     - { property: 'video' }
                     - { property: 'videoFile', type: 'vich_image' }
+                    - { property: 'createdAt' }
             search:
                 fields:
                     - property: 'entityLang.title'
@@ -72,7 +75,7 @@ easy_admin:
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
             form:
                 fields:
-                    - { property: 'text', type: 'fos_ckeditor'  }
+                    - { property: 'text' }
                     - { property: 'imageFile', type: 'vich_image' }
                     - { property: 'images', type: 'collection', type_options: { entry_type: 'App\Form\ImageType'}, label: 'Gallery' }
 
