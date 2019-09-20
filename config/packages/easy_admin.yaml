@@ -10,21 +10,21 @@ easy_admin:
                 title: "News"
                 fields:
                     - { property: 'id' }
-                    - { property: 'title' }
+                    - { property: 'title', css_class: 'input-large' }
                     - { property: 'text', label: 'description' }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
                     - { property: 'createdAt' }
             show:
                 fields:
                     - { property: 'id' }
-                    - { property: 'title'  }
+                    - { property: 'title', css_class: 'input-large' }
                     - { property: 'text', label: 'description'  }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
                     - { property: 'createdAt' }
 
             form:
                 fields:
-                    - { property: 'title' }
+                    - { property: 'title', css_class: 'input-large' }
                     - { property: 'text' , type: 'fos_ckeditor', label: 'description' }
                     - { property: 'caption' }
                     - { property: 'imageFile', type: 'vich_image' }
@@ -56,6 +56,29 @@ easy_admin:
             form:
                 fields:
                     - { property: 'title' }
+                    - { property: 'pdfFile', type: 'vich_image' }
+
+        Magazine:
+            class: App\Entity\Magazine
+            label: 'Magazine'
+            list:
+                title: "Magazine"
+                fields:
+                    - { property: 'id' }
+                    - { property: 'title' }
+                    - { property: 'magazine' }
+                    - { property: 'pdf' }
+            show:
+                fields:
+                    - { property: 'id' }
+                    - { property: 'title' }
+                    - { property: 'magazine' }
+                    - { property: 'pdf' }
+
+            form:
+                fields:
+                    - { property: 'title' }
+                    - { property: 'imageFile', type: 'vich_image' }
                     - { property: 'pdfFile', type: 'vich_image' }
 
         Gallery:
@@ -143,10 +166,10 @@ easy_admin:
                 title: "Team"
                 fields:
                     - { property: 'id' }
-                    - { property: 'title'  }
-                    - { property: 'text'  }
+                    - { property: 'title', label: 'Full Name' }
+                    - { property: 'text', label: 'Position' }
                     - { property: 'branches' }
-                    - { property: 'number' }
+                    - { property: 'number', label: 'order' }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
             show:
                 fields:
@@ -157,10 +180,10 @@ easy_admin:
 
             form:
                 fields:
-                    - { property: 'title' , type: 'fos_ckeditor' }
-                    - { property: 'text' , type: 'fos_ckeditor' }
+                    - { property: 'title' }
+                    - { property: 'text' }
                     - { property: 'branches' }
-                    - { property: 'number' }
+                    - { property: 'number', label: 'order' }
                     - { property: 'imageFile', type: 'vich_image' }
             search:
                 fields:
@@ -200,15 +223,14 @@ easy_admin:
 
         Featured:
             class: App\Entity\Feature
-            label: 'Features'
+            label: 'Featured Content'
             list:
-                title: "Features"
+                title: "Featured Content"
                 fields:
                     - { property: 'id' }
                     - { property: 'title' }
-                    - { property: 'link_type'  }
+                    - { property: 'link_type', type: 'choice', type_options: {choices: {'inner':'inner', 'outter':'outter'}}}
                     - { property: 'position'  }
-                    - { property: 'order'  }
                     - { property: 'image', type: 'images', base_path: '%app.path.images%' }
             show:
                 fields:
@@ -216,16 +238,14 @@ easy_admin:
                     - { property: 'title' }
                     - { property: 'link_type'  }
                     - { property: 'position'  }
-                    - { property: 'order'  }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
 
             form:
                 fields:
-                    - { property: 'title' , type: 'fos_ckeditor' }
-                    - { property: 'link' , type: 'fos_ckeditor' }
-                    - { property: 'link_type' , type: 'fos_ckeditor' }
-                    - { property: 'position' , type: 'fos_ckeditor' }
-                    - { property: 'order' , type: 'fos_ckeditor' }
+                    - { property: 'title' }
+                    - { property: 'link' }
+                    - { property: 'link_type' , type: 'choice', type_options: {choices: {'inner':'inner', 'outter':'outter'}}}
+                    - { property: 'position' , type: 'choice', type_options: {choices: {'first':'first', 'second':'second', 'third':'third' }}}
                     - { property: 'imageFile', type: 'vich_image' }
             search:
                 fields:

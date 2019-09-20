@@ -64,7 +64,6 @@ class Feature
      */
     public $pages;
 
-
     public function __construct()
     {
         $this->entityLang = new ArrayCollection();
