@@ -42,11 +42,6 @@ class Feature
     private $position;
 
     /**
-     * @ORM\Column(type="string", nullable=false)
-     */
-    private $order;
-
-    /**
      * @var ArrayCollection
      * @ORM\OneToMany(
      *     targetEntity="App\Entity\FeatureLang",
@@ -60,34 +55,19 @@ class Feature
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="App\Entity\Page")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag")
      */
-    public $pages;
+    public $tag;
 
     public function __construct()
     {
         $this->entityLang = new ArrayCollection();
+        $this->tag = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOrder()
-    {
-        return $this->order;
-    }
-
-    /**
-     * @param mixed $order
-     */
-    public function setOrder($order)
-    {
-        $this->order = $order;
     }
 
     public function getLink()
@@ -124,6 +104,14 @@ class Feature
         $this->position = $position;
 
         return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTag()
+    {
+        return $this->tag;
     }
 
     /**

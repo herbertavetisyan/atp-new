@@ -7,7 +7,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\EventsRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
  * @Vich\Uploadable
  */
 class Events
