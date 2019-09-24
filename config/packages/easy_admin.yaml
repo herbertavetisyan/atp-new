@@ -66,13 +66,11 @@ easy_admin:
                 fields:
                     - { property: 'id' }
                     - { property: 'title' }
-                    - { property: 'magazine' }
                     - { property: 'pdf' }
             show:
                 fields:
                     - { property: 'id' }
                     - { property: 'title' }
-                    - { property: 'magazine' }
                     - { property: 'pdf' }
 
             form:
@@ -182,7 +180,7 @@ easy_admin:
                 fields:
                     - { property: 'title', type: 'text', label: 'name' }
                     - { property: 'text', type: 'text', label: 'position' }
-                    - { property: 'branches' }
+                    - { property: 'branches', type: 'choice', type_options: {choices: {'ATP BOSTON':'ATP BOSTON, MASSACHUSETTS', 'USA':'ATP SOUTHERN CALIFORNIA, USA', 'ARMENIA':'ATP YEREVAN, ARMENIA' }}}
                     - { property: 'number', label: 'order' }
                     - { property: 'imageFile', type: 'vich_image' }
             search:
@@ -200,7 +198,7 @@ easy_admin:
                     - { property: 'title' }
                     - { property: 'text_bottom'  }
                     - { property: 'text_top'  }
-                    - { property: 'image', type: 'images', base_path: '%app.path.images%' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
             show:
                 fields:
                     - { property: 'id' }
@@ -259,23 +257,15 @@ easy_admin:
             label: 'Featured Tags'
             list:
                 title: "Featured Tags"
-                fields:
-                    - { property: 'id' }
-                    - { property: 'title' }
             show:
-                fields:
-                    - { property: 'id' }
-                    - { property: 'title' }
             form:
-                fields:
-                    - { property: 'title' }
             search:
                 fields:
                     - property: 'entityLang.title'
 
         Donation:
             class: App\Entity\Donation
-            label: 'Donation Amount'
+            label: 'Donation List'
             disabled_actions: ['new', 'edit']
             list:
                 title: "Donations"

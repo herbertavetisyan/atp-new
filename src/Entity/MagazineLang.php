@@ -28,11 +28,6 @@ class MagazineLang
     private $magazine;
 
     /**
-     * @ORM\Column(type="string", nullable=true, length=2)
-     */
-    private $lang;
-
-    /**
      * @return mixed
      */
     public function getId()
@@ -62,21 +57,5 @@ class MagazineLang
     public function setMagazine(Magazine $magazine): void
     {
         $this->magazine = $magazine;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLang()
-    {
-        return $this->lang;
-    }
-
-    /**
-     * @param mixed $lang
-     */
-    public function setLang($lang): void
-    {
-        $this->lang = $lang;
     }
 }

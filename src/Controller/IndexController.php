@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Certificate;
 use App\Entity\Events;
+use App\Entity\Slide;
 use App\Entity\Team;
 use App\Entity\TeamBranch;
 use App\Form\Type\InterestType;
@@ -106,9 +107,13 @@ class IndexController extends AbstractController
 
         $topEvents = $this->eventManager->homePageEvents($lang);
 
+        $slider = $this->getDoctrine()
+            ->getRepository(Slide::class)
+            ->findAll();
 //        dump($topEvents);die;
         return $this->render("index/index.html.twig", [
             'events' => $allEvents,
+            'slider' => $slider,
             'topEvents' => $topEvents,
             'bottom' => $features,
         ]);

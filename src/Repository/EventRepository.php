@@ -26,7 +26,7 @@ class EventRepository extends ServiceEntityRepository
     public function getHomepageEvents($lang)
     {
         $qb = $this->createQueryBuilder('e')
-            ->select('e.id, e.image, l.text, l.title')
+            ->select('e.id, e.image, e.startDate, l.text, l.title')
             ->leftJoin('e.entityLang', 'l')
             ->where("l.lang = :lang")
             ->setParameter('lang', $lang)
