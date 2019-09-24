@@ -276,6 +276,7 @@ easy_admin:
         Donation:
             class: App\Entity\Donation
             label: 'Donation Amount'
+            disabled_actions: ['new', 'edit']
             list:
                 title: "Donations"
                 fields:
@@ -289,8 +290,3 @@ easy_admin:
                     - { property: 'amount' }
                     - { property: 'text'  }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
-            form:
-                fields:
-                    - { property: 'amount' }
-                    - { property: 'text' , type: 'fos_ckeditor'  }
-                    - { property: 'imageFile', type: 'vich_image' }
