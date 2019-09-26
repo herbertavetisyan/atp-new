@@ -29,6 +29,7 @@ class EventRepository extends ServiceEntityRepository
             ->select('e.id, e.image, e.startDate, e.linkText, l.text, l.title')
             ->leftJoin('e.entityLang', 'l')
             ->where("l.lang = :lang")
+            ->andWhere("e.isActive = 1")
             ->setParameter('lang', $lang)
             ->getQuery();
 
