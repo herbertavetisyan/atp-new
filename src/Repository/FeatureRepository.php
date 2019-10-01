@@ -32,7 +32,7 @@ class FeatureRepository extends ServiceEntityRepository
         $qb
             ->select("feature, entityLang")
             ->leftJoin("feature.entityLang", "entityLang")
-            ->innerJoin("App:Page", "pages", "WITH", "pages.linkName = :linkName")
+            ->innerJoin("App:Tag", "tags", "WITH", "tags.title = :linkName")
             ->setParameter("linkName", $linkName);
 
         return $qb->getQuery()->getResult();

@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\TeamBranch;
+use App\Entity\BranchesLang;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method TeamBranch|null find($id, $lockMode = null, $lockVersion = null)
- * @method TeamBranch|null findOneBy(array $criteria, array $orderBy = null)
- * @method TeamBranch[]    findAll()
- * @method TeamBranch[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method BranchesLang|null find($id, $lockMode = null, $lockVersion = null)
+ * @method BranchesLang|null findOneBy(array $criteria, array $orderBy = null)
+ * @method BranchesLang[]    findAll()
+ * @method BranchesLang[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class TeamBranchRepository extends ServiceEntityRepository
+class BranchesLangRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, TeamBranch::class);
+        parent::__construct($registry, BranchesLang::class);
     }
 
     // /**
-    //  * @return TeamBranch[] Returns an array of TeamBranch objects
+    //  * @return BranchesLang[] Returns an array of BranchesLang objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class TeamBranchRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?TeamBranch
+    public function findOneBySomeField($value): ?BranchesLang
     {
         return $this->createQueryBuilder('t')
             ->andWhere('t.exampleField = :val')

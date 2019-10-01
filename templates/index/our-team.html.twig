@@ -43,29 +43,28 @@
 
         {% set total = 0 %}
         {% set odd = 1 %}
-
-        {% for item in branches %}
-            {% if item.Type == 'atp' %}
+        {% for key,value in branches %}
+            {% if value == 'atp' %}
                 <section class="boston-team-wrapper team-images-wrapper">
                     <div class="container">
                         {% autoescape %}
-                                <h3>{{ item.Text|raw }}</h3>
+                                <h3>{{ value|raw }}</h3>
                         {% endautoescape %}
                         {% set rw = 0 %}
                         <div class="row">
                             {% for elem in members %}
-                                {% if elem.branchId == item.id %}
+                                {% if elem.branch == value %}
                                     {% if rw % 3 == 0 %}
                                         </div>
                                         <div class="row">
                                     {% endif %}
                                         <div class="col-sm-4 col-xs-12 text-center">
-                                            <img src="../uploads/images/{{ elem.Image }}" alt="">
+                                            <img src="/uploads/images/{{ elem.image }}" alt="">
                                             {% autoescape %}
-                                                    <h4>{{ elem.Name|raw }}</h4>
+                                                    <h4>{{ elem.title|raw }}</h4>
                                             {% endautoescape %}
                                             {% autoescape %}
-                                                    <p>{{ elem.Position|raw }}</p>
+                                                    <p>{{ elem.text|raw }}</p>
                                             {% endautoescape %}
                                         </div>
                                     {% set rw = rw + 1 %}
@@ -74,53 +73,66 @@
                         </div>
                     </div>
                 </section>
-            {% elseif item.Type == 'nursery' %}
-                {% if total == 0 %}
-                    </div>
-                    {% set total = 1 %}
-                {% endif %}
-                {% if odd == 1 %}
-                    <section class="nurseries-team-wrapper odd-section">
-                    {% set odd = 2 %}
-                {% elseif odd == 2 %}
-                    <section class="nurseries-team-wrapper even-section">
-                    {% set odd = 1 %}
-                {% endif %}
-
+            {% elseif value == 'nursery' %}
+                <section class="boston-team-wrapper team-images-wrapper">
                     <div class="container">
+                        {% autoescape %}
+                            <h3>{{ value|raw }}</h3>
+                        {% endautoescape %}
+                        {% set rw = 0 %}
                         <div class="row">
-                            {% autoescape %}
-                                    <h3>{{ item.Text|raw }}</h3>
-                            {% endautoescape %}
-                            {% set first = 0 %}
-                            {% set nrs = 0 %}
-                            <div class="col-sm-4 col-xs-4">
-                                {% for elem in members %}
-                                    {% if elem.branchId == item.id %}
-                                        {% if nrs % 4 == 0 and nrs != 0 %}
-                                            </div>
-                                            <div class="col-sm-4 col-xs-4">
-                                        {% endif %}
-                                            {% if first == 0 %}
-                                                {% autoescape %}
-                                                        <h4>{{ elem.Name|raw }}</h4>
-                                                {% endautoescape %}
-                                                {% set first = 1 %}
-                                            {% else %}
-                                                {% autoescape %}
-                                                        <p>{{ elem.Name|raw }}</p>
-                                                {% endautoescape %}
-                                            {% endif %}
-                                        {% set nrs = nrs + 1 %}
-                                    {% endif %}
-                                {% endfor %}
+                            {% for elem in members %}
+                            {% if elem.branch == value %}
+                            {% if rw % 3 == 0 %}
+                        </div>
+                        <div class="row">
+                            {% endif %}
+                            <div class="col-sm-4 col-xs-12 text-center">
+                                <img src="/uploads/images/{{ elem.image }}" alt="">
+                                {% autoescape %}
+                                    <h4>{{ elem.title|raw }}</h4>
+                                {% endautoescape %}
+                                {% autoescape %}
+                                    <p>{{ elem.text|raw }}</p>
+                                {% endautoescape %}
                             </div>
+                            {% set rw = rw + 1 %}
+                            {% endif %}
+                            {% endfor %}
                         </div>
                     </div>
                 </section>
-            {% endif %}
+        {% elseif value == 'armenia' %}
+            <section class="boston-team-wrapper team-images-wrapper">
+                <div class="container">
+                    {% autoescape %}
+                        <h3>{{ value|raw }}</h3>
+                    {% endautoescape %}
+                    {% set rw = 0 %}
+                    <div class="row">
+                        {% for elem in members %}
+                        {% if elem.branch == value %}
+                        {% if rw % 3 == 0 %}
+                    </div>
+                    <div class="row">
+                        {% endif %}
+                        <div class="col-sm-4 col-xs-12 text-center">
+                            <img src="/uploads/images/{{ elem.image }}" alt="">
+                            {% autoescape %}
+                                <h4>{{ elem.title|raw }}</h4>
+                            {% endautoescape %}
+                            {% autoescape %}
+                                <p>{{ elem.text|raw }}</p>
+                            {% endautoescape %}
+                        </div>
+                        {% set rw = rw + 1 %}
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        {% endif %}
         {% endfor %}
-
 
     <!--Footer Section-->
 

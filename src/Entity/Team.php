@@ -34,7 +34,7 @@ class Team
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $branches;
+    private $branch;
 
     /**
      * @var ArrayCollection
@@ -51,6 +51,7 @@ class Team
     public function __construct()
     {
         $this->entityLang = new ArrayCollection();
+        $this->branches = new ArrayCollection();
     }
 
     /**
@@ -119,16 +120,20 @@ class Team
         return $this;
     }
 
-    public function getBranches()
+    /**
+     * @return mixed
+     */
+    public function getBranch()
     {
-        return $this->branches;
+        return $this->branch;
     }
 
-    public function setBranches($branches)
+    /**
+     * @param mixed $branch
+     */
+    public function setBranch($branch): void
     {
-        $this->branches = $branches;
-
-        return $this;
+        $this->branch = $branch;
     }
 
     /**

@@ -116,7 +116,7 @@
                                 {% if item.LinkType == 'outter' %}
                                     <a target="_blank" href="{{ item.Link }}">Read More</a>
                                 {% elseif item.LinkType == 'inner' %}
-                                    <a class="donate-link" href="{{ path('donation') }}">
+                                    <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
                                         <button> Donate</button>
                                     </a>
                                 {% elseif item.LinkType == 'video' %}

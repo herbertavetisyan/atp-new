@@ -107,22 +107,22 @@ easy_admin:
                 fields:
                     - { property: 'id' }
                     - { property: 'title' }
-                    - { property: 'text', label: 'description' }
+                    - { property: 'text', label: 'Description' }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
-                    - { property: 'is_active', label: 'isActive', type: 'toggle' }
+                    - { property: 'is_active', label: 'IsActive', type: 'toggle' }
             show:
                 fields:
                     - { property: 'id' }
                     - { property: 'title'  }
-                    - { property: 'text', label: 'description' }
+                    - { property: 'text', label: 'Description' }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
-                    - { property: 'is_active', label: 'isActive', type: 'toggle' }
+                    - { property: 'is_active', label: 'IsActive', type: 'toggle' }
             form:
                 fields:
                     - { property: 'title', type: 'text' }
                     - { property: 'location', type: 'text' }
-                    - { property: 'linkText', label: 'link' }
-                    - { property: 'text' , type: 'fos_ckeditor', label: 'description' }
+                    - { property: 'linkText', label: 'Link' }
+                    - { property: 'text' , type: 'fos_ckeditor', label: 'Description' }
                     - { property: 'startDate' }
                     - { property: 'endDate' }
                     - { property: 'imageFile', type: 'vich_image' }
@@ -166,7 +166,7 @@ easy_admin:
                     - { property: 'id' }
                     - { property: 'title', label: 'Full Name' }
                     - { property: 'text', label: 'Position' }
-                    - { property: 'branches' }
+                    - { property: 'branch' }
                     - { property: 'number', label: 'Order' }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
             show:
@@ -180,7 +180,7 @@ easy_admin:
                 fields:
                     - { property: 'title', type: 'text', label: 'Full Name' }
                     - { property: 'text', type: 'text', label: 'Position' }
-                    - { property: 'branches', type: 'choice', type_options: {choices: {'ATP BOSTON':'ATP BOSTON, MASSACHUSETTS', 'USA':'ATP SOUTHERN CALIFORNIA, USA', 'ARMENIA':'ATP YEREVAN, ARMENIA' }}}
+                    - { property: 'branch' , type: 'choice', type_options: {choices: {'atp':'atp', 'nursery':'nursery', 'armenia':'armenia' }}}
                     - { property: 'number', label: 'Order' }
                     - { property: 'imageFile', type: 'vich_image' }
             search:
@@ -227,9 +227,8 @@ easy_admin:
                 fields:
                     - { property: 'id' }
                     - { property: 'title' }
-                    - { property: 'link_type', type: 'choice', type_options: {choices: {'inner':'inner', 'outter':'outter'}}}
-                    - { property: 'position'  }
-                    - { property: 'image', type: 'images', base_path: '%app.path.images%' }
+                    - { property: 'position' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
             show:
                 fields:
                     - { property: 'id' }
@@ -257,8 +256,12 @@ easy_admin:
             label: 'Featured Tags'
             list:
                 title: "Featured Tags"
+                fields:
+                    - { property: 'title', label: 'Tag Name' }
             show:
             form:
+                fields:
+                    - { property: 'title', lable: 'Tag Name', type: 'text' }
             search:
                 fields:
                     - property: 'entityLang.title'
@@ -271,9 +274,17 @@ easy_admin:
                 title: "Donations"
                 fields:
                     - { property: 'id' }
+                    - { property: 'transactionId' }
+                    - { property: 'transactionCode' }
+                    - { property: 'type' }
                     - { property: 'amount' }
-                    - { property: 'text'  }
-                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
+                    - { property: 'name' }
+                    - { property: 'address' }
+                    - { property: 'email' }
+                    - { property: 'phone' }
+                    - { property: 'employer' }
+                    - { property: 'certificate' }
+                    - { property: 'createdAt' }
             show:
                 fields:
                     - { property: 'id' }

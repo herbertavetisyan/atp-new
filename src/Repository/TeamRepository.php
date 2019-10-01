@@ -18,4 +18,22 @@ class TeamRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Team::class);
     }
+
+    /**
+     * @param $lang
+     * @return Team
+     */
+    public function getTeam($lang)
+    {
+        $qb = $this->createQueryBuilder('t')
+            ->select('t.id, t.image, t.branch, l.text, l.title')
+            ->leftJoin('t.entityLang', 'l')
+            ->where("l.lang = :lang")
+            ->setParameter('lang', $lang)
+            ->getQuery();
+
+        $result = $qb->getResult();
+
+        return $result;
+    }
 }

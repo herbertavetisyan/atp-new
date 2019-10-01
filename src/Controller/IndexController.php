@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Branches;
 use App\Entity\Certificate;
 use App\Entity\Events;
 use App\Entity\Slide;
@@ -10,6 +11,7 @@ use App\Entity\TeamBranch;
 use App\Form\Type\InterestType;
 use App\Manager\EventManager;
 use App\Manager\FeatureManager;
+use App\Manager\TeamManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -43,6 +45,10 @@ class IndexController extends AbstractController
      * @var EventManager
      */
     private $eventManager;
+    /**
+     * @var TeamManager
+     */
+    private $teamManager;
 
     /**
      * IndexController constructor.
@@ -55,13 +61,15 @@ class IndexController extends AbstractController
         MailService $mailer,
         FeatureManager $featureManager,
         EntityManagerInterface $em,
-        EventManager $eventManager
+        EventManager $eventManager,
+        TeamManager $teamManager
     )
     {
         $this->mailer = $mailer;
         $this->featureManager = $featureManager;
         $this->em = $em;
         $this->eventManager = $eventManager;
+        $this->teamManager = $teamManager;
     }
 
     /**
@@ -263,17 +271,16 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/team", name="team")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function team()
+    public function team(Request $request)
     {
-        $branches = $this->getDoctrine()
-            ->getRepository(TeamBranch::class)
-            ->findAll()
-        ;
+        $lang = ucfirst($request->getLocale());
 
-        $members = $this->getDoctrine()
-            ->getRepository(Team::class)
-            ->findAll();
+        $members = $this->teamManager->getTeamMembers($lang);
+//dump($members);die;
+        $branches = ['atp', 'armenia', 'nursery'];
 
         return $this->render('index/our-team.html.twig', [
             'branches' => $branches,

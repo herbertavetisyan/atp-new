@@ -24,8 +24,8 @@
                         {% autoescape %}
                                 <p>{{ item.Text|truncate(300, true)|raw }}</p>
                         {% endautoescape %}
-                        <a href="#">READ MORE</a>
-{#                        <a href="{{ path('app.get_news', {'id': item.Id}) }}">READ MORE</a>#}
+{#                        <a href="#">READ MORE</a>#}
+                        <a href="{{ path('app.get_news',{'lang': app.session.get('lang'), 'id': item.Id}) }}">READ MORE</a>
                     </div>
                 </div>
             {% endfor %}
