@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Event;
 use App\Entity\Events;
 use App\Form\Type\FindEventType;
+use App\Manager\EventManager;
 use App\Service\Eventbrite;
 use Doctrine\ORM\EntityManagerInterface;
 use Pagerfanta\Adapter\ArrayAdapter;
@@ -24,14 +26,19 @@ class EventController extends AbstractController
      * @var EntityManagerInterface $em
      */
     private $em;
+    /**
+     * @var EventManager
+     */
+    private $eventManager;
 
     /**
      * EventController constructor.
      * @param EntityManagerInterface $em
      */
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, EventManager $eventManager)
     {
         $this->em = $em;
+        $this->eventManager = $eventManager;
     }
 
     /**
@@ -141,18 +148,15 @@ class EventController extends AbstractController
             $events = $new_events;
         }
 
-        $queryBuilder = $this->em->createQueryBuilder();
-
-        $localEvents = $queryBuilder->select('e')
-            ->from(Events::class, 'e')
-            ->orderBy('e.startDate', 'DESC')
-            ->getQuery()->getArrayResult();
+        $localEvents = $this->eventManager->homePageEvents($lang);
 
         $oldEvents = $events;
+
         foreach($localEvents as $item){
+//            dump($item);die;
             $new = [];
             $new['name']['text'] = $item['title'];
-            $new['description']['text'] = $item['description'];
+            $new['description']['text'] = $item['text'];
             /** @var \DateTime $startDate */
             $startDate = $item['startDate'];
             /** @var \DateTime $endDate */

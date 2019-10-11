@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Magazine;
+use App\Entity\Slide;
 use App\Entity\Video;
 use App\Service\MailService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -41,11 +43,11 @@ class InteractiveController extends AbstractController
     public function interactive()
     {
         $slider = $this->getDoctrine()
-            ->getRepository(InteractiveSlider::class)
+            ->getRepository(Slide::class)
             ->findAll();
 
         $bottom = $this->getDoctrine()
-            ->getRepository(InteractiveBottom::class)
+            ->getRepository(Slide::class)
             ->findAll();
 
         return $this->render('interactive/interactive.html.twig', [

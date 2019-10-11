@@ -123,7 +123,7 @@ class IndexController extends AbstractController
             'events' => $allEvents,
             'slider' => $slider,
             'topEvents' => $topEvents,
-            'bottom' => $features,
+            'features' => $features,
         ]);
     }
 
@@ -166,10 +166,16 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/economic", name="economic")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function economic()
+    public function economic(Request $request)
     {
-        return $this->render('index/economic.html.twig');
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
+//dump($features);die;
+        return $this->render('index/economic.html.twig', [
+            'features' => $features
+        ]);
     }
 
     /**
@@ -185,6 +191,7 @@ class IndexController extends AbstractController
      */
     public function forestation()
     {
+        die('aaa');
         return $this->render('index/forestation.html.twig');
     }
 

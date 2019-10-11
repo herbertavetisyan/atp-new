@@ -38,4 +38,22 @@ class EventRepository extends ServiceEntityRepository
         return $result;
     }
 
+    /**
+     * @param $lang
+     * @return Event
+     */
+    public function getEvents($lang)
+    {
+        $qb = $this->createQueryBuilder('e')
+            ->select('e.id, e.image, e.startDate, e.endDate, e.linkText, e.location, l.text, l.title')
+            ->leftJoin('e.entityLang', 'l')
+            ->where("l.lang = :lang")
+            ->setParameter('lang', $lang)
+            ->orderBy('e.startDate', 'DESC')
+            ->getQuery();
+
+        $result = $qb->getResult();
+
+        return $result;
+    }
 }

@@ -17,7 +17,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Magazine
 {
-    use BaseEntityVirtual, TimestampableEntity, PdfEntity, ImageEntity;
+    use BaseEntityVirtual, PdfEntity, TimestampableEntity, ImageEntity;
 
     /**
      * @ORM\Id()

@@ -4,24 +4,6 @@
     <!--Top Section-->
     <section id="top" class="top-section">
         <div class="owl-carousel owl-theme">
-{#                <div class="item" style="background:url('uploads/images/images(1).jpeg') no-repeat; background-size:cover; background-position: 0; height: 460px">#}
-{#                    <div class="container">#}
-{#                        <h1>{% trans %} SUSTAIN {% endtrans %}</h1>#}
-{#                        <p>{% trans %} Ensuring a high survival of trees while enriching the soil, water, air quality, and harvest {% endtrans %} }}</p>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="item" style="background:url('uploads/images/images(1).jpeg') no-repeat; background-size:cover; background-position: 0; height: 460px">#}
-{#                    <div class="container">#}
-{#                        <h1>{% trans %} TEACH {% endtrans %}</h1>#}
-{#                        <p>{% trans %} Providing economic independence through employment and enterprise opportunities {% endtrans %}</p>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="item" style="background:url('uploads/images/images(1).jpeg') no-repeat; background-size:cover; background-position: 0; height: 460px">#}
-{#                    <div class="container">#}
-{#                        <h1>{% trans %} EMPOWER {% endtrans %}</h1>#}
-{#                        <p>{% trans %} Building awareness between healthy trees and preservation, and the role of individual and community in the environment{% endtrans %} }}</p>#}
-{#                    </div>#}
-{#                </div>#}
             {% for item in slider %}
                 <div class="item" style="background:url('../uploads/images/{{ item.Image }}') no-repeat; background-size:cover; background-position: 0; height: 460px">
                     <div class="container">
@@ -35,10 +17,9 @@
                 </div>
             {% endfor %}
         </div>
-
     </section>
-
     <div class="work-and-news-wrapper">
+
         <!--Our Work Section-->
 
         <section id="ourwork" class="our-work">
@@ -103,7 +84,7 @@
                 <h4>{% trans %} FEATURED CONTENT {% endtrans %}</h4>
                 <div class="grid-container">
 
-                    {% for item in bottom %}
+                    {% for item in features %}
 
                         <div class="grid-item" style="background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover;">
                         <div class="single-grid-content">
@@ -139,63 +120,13 @@
                         </div>
                     </div>
                     {% endfor %}
-                    {#<div class="grid-item">#}
-                        {#<div class="single-grid-content">#}
-                            {#<h3>Prevent Forest Fires</h3>#}
-                            {#<p>20 JUL 2018</p>#}
-                            {#<a target="_blank" href="https://www.armeniatree.org/en/ATPNews/20180816.asp">Read More</a>#}
-                        {#</div>#}
-                    {#</div>#}
-                    {#<div class="grid-item">#}
-                        {#<div class="single-grid-content">#}
-                            {#<h3>Donate to the ATP <br> Annual Appeal Today</h3>#}
-                            {#<button href="#"> Donate</button>#}
-                        {#</div>#}
-                    {#</div>#}
-                    {#<div class="grid-item">#}
-                        {#<div class="single-grid-content">#}
-                            {#<h3>Visit ATP in Armenia</h3>#}
-                            {#<button href="#"> Donate</button>#}
-                        {#</div>#}
-                    {#</div>#}
-                    {#<div class="grid-item">#}
-                        {#<div class="single-grid-content">#}
-                            {#<h3>ATP Pays Tribute to the <br> Inspirational Life and <br> Grassroots Work of Fr.<br> Dajad Davidian</h3>#}
-                            {#<p>18 JUL 2018</p>#}
-                            {#<a href="#">Read More</a>#}
-                        {#</div>#}
-                    {#</div>#}
-                    {#<div class="grid-item">#}
-                        {#<div class="single-grid-content">#}
-                            {#<h3>ATP Supports Smithsonian Folklife <br> Festival and Raises Awareness about Its <br> Mission during Several Events</h3>#}
-                            {#<a  data-toggle="modal" data-target="#about_atp_video"><img class="play-button" src="../img/play_btn.svg" alt=""></a>#}
-                        {#</div>#}
-                    {#</div>#}
                 </div>
-                {#<div class="modal fade" id="about_atp_video" tabindex="-1" role="dialog" aria-labelledby="about_atp_video"#}
-                     {#aria-hidden="true">#}
-                    {#<div class="modal-dialogg">#}
-                        {#<div class="modal-contentt">#}
-                            {#<div class="modal-body">#}
-                                {#<button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal"#}
-                                        {#aria-hidden="true">&times;</button>#}
-                                {#<div class="video-container">#}
-                                    {#<iframe width="560" height="315" src="https://www.youtube.com/embed/xaU67YlZZR8" frameborder="0"  allowfullscreen></iframe>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
             </div>
         </section>
     </div>
-
-
-
     <!-- Events Section-->
 
     {% if topEvents %}
-{#        {{ dump(topEvents) }}#}
         <section id="events" class="community-last-section">
             <div class="container">
                 <h4>UPCOMING EVENTS</h4>

@@ -241,7 +241,7 @@ easy_admin:
                 fields:
                     - { property: 'title', type: 'text' }
                     - { property: 'link', type: 'text' }
-                    - { property: 'link_type' , type: 'choice', type_options: {choices: {'inner':'inner', 'outter':'outter'}}}
+                    - { property: 'link_type' , type: 'choice', type_options: {choices: {'inner':'inner', 'outter':'outter', 'video':'video' }}}
                     - { property: 'position' , type: 'choice', type_options: {choices: {'first':'first', 'second':'second', 'third':'third' }}}
                     - { property: 'imageFile', type: 'vich_image' }
                     - { property: 'tag', type_options: { multiple: true } }
