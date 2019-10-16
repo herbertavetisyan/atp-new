@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Event;
-use App\Entity\Events;
 use App\Form\Type\FindEventType;
 use App\Manager\EventManager;
 use App\Service\Eventbrite;
@@ -153,7 +151,6 @@ class EventController extends AbstractController
         $oldEvents = $events;
 
         foreach($localEvents as $item){
-//            dump($item);die;
             $new = [];
             $new['name']['text'] = $item['title'];
             $new['description']['text'] = $item['text'];
