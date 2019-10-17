@@ -1,138 +1,138 @@
 {% extends 'base.html.twig' %}
-{% block title %}<title>Armenia Tree Project - Backyard nurseries</title>{% endblock %}
+{% block title %}<title xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">Armenia Tree Project -OUR TEAM AROUND THE WORLD</title>{% endblock %}
+{% block meta %}
+    <meta property="og:title" content="OUR TEAM AROUND THE WORLD" />
+    <meta property="og:description"  content="ATP employs 88 full-time staff in Armenia</br>
+                        and the US, and 150 seasonal workers each</br>
+                        year." />
+    <meta property="og:image"  content="{{ app.request.schemeAndHttpHost }}/uploads/images/our-team-cover.jpg" />
+{% endblock %}
 
 {% block body %}
 
-    <section class="our-team secondary-pages-top-content" style="background:url('/uploads/images/our-team-cover.jpg') no-repeat; background-size:cover; background-position: 0;">
+<section class="our-team secondary-pages-top-content" style="background:url('/uploads/images/our-team-cover.jpg') no-repeat; background-size:cover; background-position: 0;">
+    <div class="container">
+        <div class="row center-aligned-row">
+            <div class="col-sm-6">
+                {% autoescape %}
+                    <h1>OUR TEAM AROUND THE WORLD</h1>
+                {% endautoescape %}
+            </div>
+            <div class="col-sm-6 cover-text">
+                {% autoescape %}
+                    <br>ATP employs 88 full-time staff in Armenia</br>
+                        and the US, and 150 seasonal workers each</br>
+                        year.</p>
+                {% endautoescape %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="our-team-main-content-wrapper">
+
+    <section class="community-second">
         <div class="container">
             <div class="row center-aligned-row">
-                <div class="col-sm-6">
-                    <h1>OUR TEAM AROUND THE WORLD</h1>
+                <div class="col-md-6 col-xs-12">
+                    <h3 class="committee-title">EXECUTIVE COMMITTEE</h3>
+                    {% autoescape %}
+                        <p>Carolyn Mugar FOUNDER</br>
+
+                            Anthony Barsamian</br>
+
+                            Tom Garabedian</br>
+
+                            Julia Mirak Kew</p>
+                    {% endautoescape %}
                 </div>
-                <div class="col-sm-6 cover-text">
-                    <p>ATP employs<span>&nbsp;88 full-time&nbsp;</span>staff in Armenia<br>
-                        and the US, and&nbsp;<span>150&nbsp;seasonal workers </span>each<br> year.</p>
+                <div class="col-md-6 col-xs-12">
+                    <img src="../uploads/images/DSC_0119.jpg" alt="">
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="our-team-main-content-wrapper">
+    {% set total = 0 %}
+    {% set odd = 1 %}
 
-        <section class="community-second">
-            <section class="community-second">
-                <div class="container">
-                    <div class="row center-aligned-row">
-                        <div class="col-md-6 col-xs-12">
-                            <h3 class="committee-title">EXECUTIVE COMMITTEE</h3>
-                            <h5>Carolyn Mugar FOUNDER</h5>
-
-                            <h5>Anthony Barsamian</h5>
-
-                            <h5>Tom Garabedian</h5>
-
-                            <h5>Julia Mirak Kew</h5><p></p>
-                        </div>
-                        <div class="col-md-6 col-xs-12">
-                            <img src="../uploads/images/DSC_0119.jpg" alt="">
-                        </div>
-                    </div>
+    {% for key, value in branches %}
+    {% if value == 'atp' %}
+    <section class="boston-team-wrapper team-images-wrapper">
+        <div class="container">
+            {% autoescape %}
+                <h3>{{ key|raw }}</h3>
+            {% endautoescape %}
+            {% set rw = 0 %}
+            <div class="row">
+                {% for elem in members %}
+                {% if elem.branch == key %}
+                {% if rw % 3 == 0 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                <div class="col-sm-4 col-xs-12 text-center">
+                    <img src="/uploads/images/{{ elem.image }}" alt="">
+                    {% autoescape %}
+                        <h4>{{ elem.title|raw }}</h4>
+                    {% endautoescape %}
+                    {% autoescape %}
+                        <p>{{ elem.text|raw }}</p>
+                    {% endautoescape %}
                 </div>
-            </section>
-        </section>
-
-        {% set total = 0 %}
+                {% set rw = rw + 1 %}
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% elseif value == 'nursery' %}
+    {% if total == 0 %}
+</div>
+{% set total = 1 %}
+                {% endif %}
+                {% if odd == 1 %}
+<section class="nurseries-team-wrapper odd-section">
+    {% set odd = 2 %}
+    {% elseif odd == 2 %}
+    <section class="nurseries-team-wrapper even-section">
         {% set odd = 1 %}
-        {% for key,value in branches %}
-            {% if value == 'atp' %}
-                <section class="boston-team-wrapper team-images-wrapper">
-                    <div class="container">
-                        {% autoescape %}
-                                <h3>{{ value|raw }}</h3>
-                        {% endautoescape %}
-                        {% set rw = 0 %}
-                        <div class="row">
-                            {% for elem in members %}
-                                {% if elem.branch == value %}
-                                    {% if rw % 3 == 0 %}
-                                        </div>
-                                        <div class="row">
-                                    {% endif %}
-                                        <div class="col-sm-4 col-xs-12 text-center">
-                                            <img src="/uploads/images/{{ elem.image }}" alt="">
-                                            {% autoescape %}
-                                                    <h4>{{ elem.title|raw }}</h4>
-                                            {% endautoescape %}
-                                            {% autoescape %}
-                                                    <p>{{ elem.text|raw }}</p>
-                                            {% endautoescape %}
-                                        </div>
-                                    {% set rw = rw + 1 %}
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                </section>
-            {% elseif value == 'nursery' %}
-                <section class="boston-team-wrapper team-images-wrapper">
-                    <div class="container">
-                        {% autoescape %}
-                            <h3>{{ value|raw }}</h3>
-                        {% endautoescape %}
-                        {% set rw = 0 %}
-                        <div class="row">
-                            {% for elem in members %}
-                            {% if elem.branch == value %}
-                            {% if rw % 3 == 0 %}
-                        </div>
-                        <div class="row">
+        {% endif %}
+
+        <div class="container">
+            <div class="row">
+                {% autoescape %}
+                    <h3>{{ key|raw }}</h3>
+                {% endautoescape %}
+                {% set first = 0 %}
+                {% set nrs = 0 %}
+                <div class="col-sm-4 col-xs-4">
+                    {% for elem in members %}
+                        {% if elem.branch == key %}
+                            {% if nrs % 4 == 0 and nrs != 0 %}
+                                </div>
+                                <div class="col-sm-4 col-xs-4">
                             {% endif %}
-                            <div class="col-sm-4 col-xs-12 text-center">
-                                <img src="/uploads/images/{{ elem.image }}" alt="">
+                            {% if first == 0 %}
                                 {% autoescape %}
                                     <h4>{{ elem.title|raw }}</h4>
                                 {% endautoescape %}
+                                {% set first = 1 %}
+                            {% else %}
                                 {% autoescape %}
-                                    <p>{{ elem.text|raw }}</p>
+                                    <p>{{ elem.title|raw }}</p>
                                 {% endautoescape %}
-                            </div>
-                            {% set rw = rw + 1 %}
                             {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                </section>
-        {% elseif value == 'armenia' %}
-            <section class="boston-team-wrapper team-images-wrapper">
-                <div class="container">
-                    {% autoescape %}
-                        <h3>{{ value|raw }}</h3>
-                    {% endautoescape %}
-                    {% set rw = 0 %}
-                    <div class="row">
-                        {% for elem in members %}
-                        {% if elem.branch == value %}
-                        {% if rw % 3 == 0 %}
-                    </div>
-                    <div class="row">
+                            {% set nrs = nrs + 1 %}
                         {% endif %}
-                        <div class="col-sm-4 col-xs-12 text-center">
-                            <img src="/uploads/images/{{ elem.image }}" alt="">
-                            {% autoescape %}
-                                <h4>{{ elem.title|raw }}</h4>
-                            {% endautoescape %}
-                            {% autoescape %}
-                                <p>{{ elem.text|raw }}</p>
-                            {% endautoescape %}
-                        </div>
-                        {% set rw = rw + 1 %}
-                        {% endif %}
-                        {% endfor %}
-                    </div>
+                    {% endfor %}
                 </div>
-            </section>
-        {% endif %}
-        {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+
 
     <!--Footer Section-->
 
@@ -146,7 +146,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ path('contact',{ 'lang': app.request.locale }) }}">Contact Us</a>
+                            <a href="{{ path('contact', {"lang": app.request.locale }) }}">Contact Us</a>
                         </li><li>
                             <a href="#">Privacy Policy</a>
                         </li>
@@ -199,5 +199,5 @@
     <!-- Custom Js Files-->
     <script src="{{ asset('js/main.js') }}"></script>
 
-{% endblock %}
+    {% endblock %}
 

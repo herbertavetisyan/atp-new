@@ -118,7 +118,7 @@ class IndexController extends AbstractController
         $slider = $this->getDoctrine()
             ->getRepository(Slide::class)
             ->findAll();
-//        dump($topEvents);die;
+
         return $this->render("index/index.html.twig", [
             'events' => $allEvents,
             'slider' => $slider,
@@ -172,7 +172,7 @@ class IndexController extends AbstractController
     public function economic(Request $request)
     {
         $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
-//dump($features);die;
+
         return $this->render('index/economic.html.twig', [
             'features' => $features
         ]);
@@ -197,10 +197,16 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/where", name="where")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function where()
+    public function where(Request $request)
     {
-        return $this->render('index/where.html.twig');
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
+
+        return $this->render('index/where.html.twig', [
+            'features' => $features
+        ]);
     }
 
     /**
@@ -286,8 +292,16 @@ class IndexController extends AbstractController
         $lang = ucfirst($request->getLocale());
 
         $members = $this->teamManager->getTeamMembers($lang);
-//dump($members);die;
-        $branches = ['atp', 'armenia', 'nursery'];
+
+        $branches = [
+            'ATP YEREVAN, ARMENIA' => 'atp',
+            'ATP SOUTHERN CALIFORNIA, USA' => 'atp',
+            'ATP BOSTON, MASSACHUSETTS' => 'atp',
+            'CHIVA NURSERY' => 'nursery',
+            'MIRAK NURSERY' => 'nursery',
+            'KHACHPAR NURSERY' => 'nursery',
+            'KARIN NURSERY' => 'nursery'
+            ];
 
         return $this->render('index/our-team.html.twig', [
             'branches' => $branches,
