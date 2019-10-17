@@ -4408,7 +4408,7 @@ ul.dropdown-menu > li.sub-dropdown:hover > ul.sub-dropdown-group {
     font-size: 18px;
 }
 
-.news-related-short-description-wrapper a {
+.news-related-short-description-wrapper .read-more-link {
     font-size: 16px;
     text-decoration: underline;
     color: #333333;

@@ -19,13 +19,12 @@
                     </div>
                     <div class="col-lg-6 col-xs-12 news-related-short-description-wrapper">
                         {% autoescape %}
-                                <h5>{{ item.Title|raw }}</h5>
+                                <h5>{{ item.Title | raw }}</h5>
                         {% endautoescape %}
                         {% autoescape %}
-                                <p>{{ item.Text|truncate(300, true)|raw }}</p>
+                                <p>{{ item.Text|truncate(300, true) | raw }}</p>
                         {% endautoescape %}
-{#                        <a href="#">READ MORE</a>#}
-                        <a href="{{ path('app.get_news',{'lang': app.session.get('lang'), 'id': item.Id}) }}">READ MORE</a>
+                        <a class="read-more-link" href="{{ path('app.get_news',{'lang': app.session.get('lang'), 'id': item.Id}) }}">READ MORE</a>
                     </div>
                 </div>
             {% endfor %}
@@ -50,7 +49,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ path('contact',{ 'lang': app.request.locale }, {'lang': app.request.locale }) }}">Contact Us</a>
+                            <a href="{{ path('contact',{ 'lang': app.request.locale }) }}">Contact Us</a>
                         </li><li>
                             <a href="#">Privacy Policy</a>
                         </li>
