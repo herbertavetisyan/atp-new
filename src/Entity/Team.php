@@ -37,6 +37,11 @@ class Team
     private $branch;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $branchType;
+
+    /**
      * @var ArrayCollection
      * @ORM\OneToMany(
      *     targetEntity="App\Entity\TeamLang",
@@ -134,6 +139,22 @@ class Team
     public function setBranch($branch): void
     {
         $this->branch = $branch;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBranchType()
+    {
+        return $this->branchType;
+    }
+
+    /**
+     * @param mixed $branchType
+     */
+    public function setBranchType($branchType): void
+    {
+        $this->branchType = $branchType;
     }
 
     /**
