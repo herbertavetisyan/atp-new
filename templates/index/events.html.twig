@@ -59,32 +59,32 @@
             <div class="col-sm-12">
                 <div class="single-events-panels-wrapper">
                     {% for item in pager.currentPageResults %}
-                    <div class="single-event-panel">
-                        <div>
-                            {% set startDatetimeString = item.start.local %}
-                            {% set endDatetimeString = item.end.local %}
-                            <h3><span>{{ startDatetimeString|date('l, M d, Y')|upper  }}</span>  |  {{ startDatetimeString|date('h:iA')  }} UNTIL {{ endDatetimeString|date('h:iA') }}</h3>
-                            <h4>{{ item.name.text|raw }}</h4>
-                            <p>{{ (item.description.text|length > 250 ? item.description.text|slice(0, 250) ~ '…' : item.description.text)|raw  }}</p>
-                            <div class="button-and-destination-content-wrapper">
-                                {% if item.url is defined %}
-                                    <button class="register-for-event"><a target="_blank" href="{{ item.url|raw }}">Register and Learn More</a></button>
-                                {% else %}
-                                    <div></div>
-                                {% endif %}
-                                {% if item.place is defined %}
-                                    <p class="event-destination">{{ item.place|raw }}</p>
-                                {% elseif item.venue is defined %}
-                                    <p class="event-destination">{{ item.venue.address.city|raw }} {{ item.venue.address.region|raw }}, {{ item.venue.address.country|raw }}</p>
+                        <div class="single-event-panel">
+                            <div>
+                                {% set startDatetimeString = item.start.local %}
+                                {% set endDatetimeString = item.end.local %}
+                                <h3><span>{{ startDatetimeString|date('l, M d, Y')|upper  }}</span>  |  {{ startDatetimeString|date('h:iA')  }} UNTIL {{ endDatetimeString|date('h:iA') }}</h3>
+                                <h4>{{ item.name.text|raw }}</h4>
+                                <p>{{ (item.description.text|length > 250 ? item.description.text|slice(0, 250) ~ '…' : item.description.text)|raw  }}</p>
+                                <div class="button-and-destination-content-wrapper">
+                                    {% if item.url is defined %}
+                                        <button class="register-for-event"><a target="_blank" href="{{ item.url|raw }}">Register and Learn More</a></button>
+                                    {% else %}
+                                        <div></div>
+                                    {% endif %}
+                                    {% if item.place is defined %}
+                                        <p class="event-destination">{{ item.place|raw }}</p>
+                                    {% elseif item.venue is defined %}
+                                        <p class="event-destination">{{ item.venue.address.city|raw }} {{ item.venue.address.region|raw }}, {{ item.venue.address.country|raw }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div>
+                                {% if item.logo != null %}
+                                    <img src="{{ item.logo.url }}"  alt="">
                                 {% endif %}
                             </div>
                         </div>
-                        <div>
-                            {% if item.logo != null %}
-                                <img src="{{ item.logo.url }}"  alt="">
-                            {% endif %}
-                        </div>
-                    </div>
                     {% endfor %}
                 </div>
                 <div class="event-calendar-view-wrapper events-calendar-large" id='calendar'>

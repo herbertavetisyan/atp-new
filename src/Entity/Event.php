@@ -16,7 +16,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Event
 {
-    use BaseEntityVirtual, ImageEntity, LinkEntity, TimestampableEntity;
+    use BaseEntityVirtual, ImageEntity, TimestampableEntity;
 
     /**
      * @ORM\Id()
@@ -42,6 +42,12 @@ class Event
      * @ORM\Column(type="text", nullable=true)
      */
     private $location;
+
+    /**
+     * @var string
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $url;
 
     /**
      * @ORM\Column(type="datetime")
@@ -126,6 +132,22 @@ class Event
     public function setIsActive($isActive)
     {
         $this->isActive = $isActive;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param $url
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
     }
 
     /**

@@ -153,6 +153,7 @@ class EventController extends AbstractController
         foreach($localEvents as $item){
             $new = [];
             $new['name']['text'] = $item['title'];
+            $new['url'] = $item['url'];
             $new['description']['text'] = $item['text'];
             /** @var \DateTime $startDate */
             $startDate = $item['startDate'];
@@ -172,6 +173,7 @@ class EventController extends AbstractController
                 }
             }
             array_push($events, $new);
+            dump($new);
         }
 
 

@@ -26,7 +26,7 @@ class EventRepository extends ServiceEntityRepository
     public function getHomepageEvents($lang)
     {
         $qb = $this->createQueryBuilder('e')
-            ->select('e.id, e.image, e.startDate, e.linkText, l.text, l.title')
+            ->select('e.id, e.image, e.startDate, e.url, l.text, l.title')
             ->leftJoin('e.entityLang', 'l')
             ->where("l.lang = :lang")
             ->andWhere("e.isActive = 1")
@@ -45,7 +45,7 @@ class EventRepository extends ServiceEntityRepository
     public function getEvents($lang)
     {
         $qb = $this->createQueryBuilder('e')
-            ->select('e.id, e.image, e.startDate, e.endDate, e.linkText, e.location, l.text, l.title')
+            ->select('e.id, e.image, e.startDate, e.endDate, e.url, e.location, l.text, l.title')
             ->leftJoin('e.entityLang', 'l')
             ->where("l.lang = :lang")
             ->setParameter('lang', $lang)

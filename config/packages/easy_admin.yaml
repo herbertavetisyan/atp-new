@@ -121,7 +121,7 @@ easy_admin:
                 fields:
                     - { property: 'title', type: 'text' }
                     - { property: 'location', type: 'text' }
-                    - { property: 'linkText', label: 'Link' }
+                    - { property: 'url', label: 'Link' }
                     - { property: 'text' , type: 'fos_ckeditor', label: 'Description' }
                     - { property: 'startDate' }
                     - { property: 'endDate' }
