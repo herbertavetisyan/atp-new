@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Form\Type\AmbassadorType;
 use App\Form\Type\VolunteerType;
 use App\Manager\AmbassadorManager;
+use App\Manager\FeatureManager;
 use App\Service\MailService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,15 +33,24 @@ class VolunteerController extends AbstractController
     private $ambassadorManager;
 
     /**
+     * @var FeatureManager
+     */
+    private $featureManager;
+
+    /**
      * DonationController constructor.
      * @param EntityManagerInterface $em
      * @param MailService $mailer
      */
-    public function __construct(EntityManagerInterface $em, MailService $mailer, AmbassadorManager $ambassadorManager)
+    public function __construct(EntityManagerInterface $em,
+                                MailService $mailer,
+                                AmbassadorManager $ambassadorManager,
+                                FeatureManager $featureManager)
     {
         $this->em = $em;
         $this->mailer = $mailer;
         $this->ambassadorManager = $ambassadorManager;
+        $this->featureManager = $featureManager;
     }
 
     /**
@@ -109,9 +119,12 @@ class VolunteerController extends AbstractController
 
         $content = $this->ambassadorManager->getAmbassadors($lang);
 
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
+
         return $this->render('index/ambassador.html.twig', [
             'form' => $form->createView(),
             'content' => $content,
+            'features' => $features
         ]);
     }
 }

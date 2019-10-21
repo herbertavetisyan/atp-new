@@ -5,7 +5,7 @@
 <div class="admin-login-wrapper">
     <div class="login-inputs-wrapper">
         <div class="form-content-wrapper">
-            <img src="./img/logo_black.svg" alt="facebook">
+            <img src="/img/logo_black.svg" alt="facebook">
             <form method="post" action="{{ path('login') }}">
                 {% if error %}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>

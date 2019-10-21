@@ -41,10 +41,12 @@ class IndexController extends AbstractController
      * @var FeatureManager
      */
     private $featureManager;
+
     /**
      * @var EventManager
      */
     private $eventManager;
+
     /**
      * @var TeamManager
      */
@@ -142,10 +144,16 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/community", name="community")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function community()
+    public function community(Request $request)
     {
-        return $this->render('index/community.html.twig');
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
+
+        return $this->render('index/community.html.twig', [
+            'features' => $features
+        ]);
     }
 
     /**
@@ -188,11 +196,16 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/forestation", name="forestation")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function forestation()
+    public function forestation(Request $request)
     {
-        die('aaa');
-        return $this->render('index/forestation.html.twig');
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
+
+        return $this->render('index/forestation.html.twig', [
+            'features' => $features
+        ]);
     }
 
     /**
@@ -211,10 +224,16 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/education", name="education")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function education()
+    public function education(Request $request)
     {
-        return $this->render('index/education.html.twig');
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
+
+        return $this->render('index/education.html.twig', [
+            'features' => $features
+        ]);
     }
 
     /**
@@ -276,10 +295,16 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/mission", name="mission")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function mission()
+    public function mission(Request $request)
     {
-        return $this->render('index/our-mission.html.twig');
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
+
+        return $this->render('index/our-mission.html.twig', [
+            'features' => $features
+        ]);
     }
 
     /**

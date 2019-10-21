@@ -28,13 +28,12 @@ class FeatureRepository extends ServiceEntityRepository
     public function findByLinkName($linkName)
     {
         $qb = $this->createQueryBuilder("feature");
-
         $qb
             ->select("feature, entityLang")
             ->leftJoin("feature.entityLang", "entityLang")
-            ->innerJoin("App:Tag", "tags", "WITH", "tags.title = :linkName")
-            ->setParameter("linkName", $linkName);
-
+            ->innerJoin("feature.tag", "tags", 'WITH', 'tags.title=:tag')
+            ->setParameter('tag', $linkName);
+//        dump($qb);die;
         return $qb->getQuery()->getResult();
     }
 }

@@ -115,26 +115,23 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="first-content" style="background: url('../uploads/images/featured-content-video-bck.png') no-repeat; background-size: cover; height: 400px;">
-                            <h3>Carolyn Mugar on the importance of ‘digging in’</h3>
-                            <p>08 Jan, 2016</p>
-                            <a href="https://www.bostonglobe.com/lifestyle/style/2016/01/08/carolyn-mugar-importance-digging/4LwPfGnDxAt5OkaPMnOvoI/story.html">Read More</a>
+                    {% for item in features %}
+                        <div class="col-md-3">
+                            <div class="third-content" style="background: url('../uploads/images/{{ item.image }}') no-repeat; background-size: cover; height: 400px;">
+                                <h3>{{ item.title }}</h3>
+                                {% if item.LinkType != 'video' %}
+                                    <p>{{ item.createdAt.format('d M, Y') }}</p>
+                                {% endif %}
+                                {% if item.LinkType == 'outter' %}
+                                    <a target="_blank" href="{{ item.Link }}">Read More</a>
+                                {% elseif item.LinkType == 'inner' %}
+                                    <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
+                                        <button> Donate</button>
+                                    </a>
+                                {% endif %}
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="second-content" style="background: url('../uploads/images/ATP Tree Planting in Aparan - May 2018.jpg') no-repeat; background-size: cover; height: 400px;">
-                            <h3>Annual Report: 25 Years of Sustaining, Empowering, and Teaching</h3>
-                            <p>19 Mar, 2019</p>
-                            <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 26 }) }}">Read More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="third-content" style="background: url('../uploads/images/photo6.jpg') no-repeat; background-size: cover; height: 400px;">
-                            <h3>Donate to the ATP Annual Appeal Today</h3>
-                            <button href="{{ path('donation',{ 'lang': app.request.locale }) }}"> Donate</button>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
