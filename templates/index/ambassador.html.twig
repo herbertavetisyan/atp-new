@@ -201,35 +201,23 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="first-content" style="background: url('../uploads/images/article-12.png') no-repeat; background-size: cover; height: 400px;">
-                            <h3>
-                                Meet Our Ambassador
-                            </h3>
-                            <p>24 Jun, 2018</p>
-                            <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 13 }) }}">Read More</a>
+                    {% for item in features %}
+                        <div class="col-md-3">
+                            <div class="third-content" style="background: url('../uploads/images/{{ item.image }}') no-repeat; background-size: cover; height: 400px;">
+                                <h3>{{ item.title }}</h3>
+                                {% if item.LinkType != 'video' %}
+                                    <p>{{ item.createdAt.format('d M, Y') }}</p>
+                                {% endif %}
+                                {% if item.LinkType == 'outter' %}
+                                    <a target="_blank" href="{{ item.Link }}">Read More</a>
+                                {% elseif item.LinkType == 'inner' %}
+                                    <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
+                                        <button> Donate</button>
+                                    </a>
+                                {% endif %}
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="second-content" style="background: url('../uploads/images/article-19.png') no-repeat; background-size: cover; height: 400px;">
-                            <h3>
-                                ATP Launches New Tree Nursery in Chiva, the Gateway to Armenia’s Burgeoning Wine...
-                            </h3>
-                            <p>26 Oct, 2018</p>
-                            <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 23 }) }}">Read More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="third-content" style="background: url('../uploads/images/photo6.jpg') no-repeat; background-size: cover; height: 400px;">
-                            <h3>
-                                Help us increase our planting efforts
-                            </h3>
-                            <a href="{{ path('donation',{ 'lang': app.request.locale }) }}">
-                                <button> Donate</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                    {% endfor %}
             </div>
         </section>
 

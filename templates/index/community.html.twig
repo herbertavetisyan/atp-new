@@ -204,35 +204,31 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h4>{% trans %}FEATURED CONTENT{% endtrans %}</h4>
+                        <h4>FEATURED CONTENT</h4>
                     </div>
                     <div class="row">
 
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="first-content" style="background: url('../uploads/images/PHOTO4.jpg') no-repeat; background-size: cover; height: 400px;">
-                            <h3>{% trans %}How to Clean Up Armenia in One Day?{% endtrans %}</h3>
-                            <p>15 Sep, 2018</p>
-                            <a href="/en/single?id=16">{% trans %}Read More{% endtrans %}</a>
+                    {% for item in features %}
+                        <div class="col-md-3">
+                            <div class="third-content" style="background: url('../uploads/images/{{ item.image }}') no-repeat; background-size: cover; height: 400px;">
+                                <h3>{{ item.title }}</h3>
+                                {% if item.LinkType != 'video' %}
+                                    <p>{{ item.createdAt.format('d M, Y') }}</p>
+                                {% endif %}
+                                {% if item.LinkType == 'outter' %}
+                                    <a target="_blank" href="{{ item.Link }}">Read More</a>
+                                {% elseif item.LinkType == 'inner' %}
+                                    <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
+                                        <button> Donate</button>
+                                    </a>
+                                {% endif %}
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="second-content" style="background: url('../uploads/images/photo.png') no-repeat; background-size: cover; height: 400px;">
-                            <h3>{% trans %}ATP Continues to Make a Difference on the Landscape of Armenia, One Tree at a Time{% endtrans %}</h3>
-                            <p>05 Dec, 2018</p>
-                            <a href="/en/single?id=19">{% trans %}Read More{% endtrans %}</a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="third-content" style="background: url('../uploads/images/photo6.jpg') no-repeat; background-size: cover; height: 400px;">
-                            <h3>{% trans %}Support Our Efforts to Build Communities{% endtrans %}</h3>
-                            <a href="/en/donation">
-                                <button> {% trans %}Donate{% endtrans %}</button>
-                            </a>
-                        </div>
-                    </div>
+                    {% endfor %}#}
+
                 </div>
             </div>
         </section>

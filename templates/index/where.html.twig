@@ -4,7 +4,7 @@
     {% block body %}
 
 
-        <section class="who-we-are secondary-pages-top-content" style="background:url('../uploads/images/where-we-are.jpg') no-repeat; background-size:cover;">
+        <section class="who-we-are secondary-pages-top-content" style="background:url('/uploads/images/where-we-are.jpg') no-repeat; background-size:cover;">
             <div class="container">
                 <div class="row center-aligned-row">
                     <div class="col-sm-6">
@@ -1377,35 +1377,28 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="first-content" style="background: url('../uploads/images/article-17.png') no-repeat; background-size: cover; height: 400px;">
-                                <h3>ATP Continues to Make a Difference on the Landscape of Armenia, One Tree at a Time</h3>
-                                <p>05 Dec, 2018</p>
-                                <a href="/en/single?id=19">Read More</a>
+                        {% for item in features %}
+                            <div class="col-md-3">
+                                <div class="third-content" style="background: url('../uploads/images/{{ item.image }}') no-repeat; background-size: cover; height: 400px;">
+                                    <h3>{{ item.title }}</h3>
+                                    {% if item.LinkType != 'video' %}
+                                        <p>{{ item.createdAt.format('d M, Y') }}</p>
+                                    {% endif %}
+                                    {% if item.LinkType == 'outter' %}
+                                        <a target="_blank" href="{{ item.Link }}">Read More</a>
+                                    {% elseif item.LinkType == 'inner' %}
+                                        <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
+                                            <button> Donate</button>
+                                        </a>
+                                    {% endif %}
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="second-content" style="background: url('../uploads/images/article-5 (1).png') no-repeat; background-size: cover; height: 400px;">
-                                <h3>Eco-Tours Are Putting This Small Village in Armenia on the Map</h3>
-                                <p>24 Sep, 2018</p>
-                                <a href="/en/single?id=18">Read More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="third-content" style="background: url('../uploads/images/photo6.jpg') no-repeat; background-size: cover; height: 400px;">
-                                <h3>Help us increase our planting efforts</h3>
-                                <a href="/en/donation">
-                                    <button> Donate</button>
-                                </a>
-                            </div>
-                        </div>
+                        {% endfor %}
+
                     </div>
                 </div>
             </section>
         </div>
-
-
-
 
         <!--Footer Section-->
 

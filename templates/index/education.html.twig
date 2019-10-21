@@ -115,26 +115,36 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="first-content" style="background: url('../uploads/images/article-1.png') no-repeat; background-size: cover; height: 400px;">
-                                <h3>Building Bridges: St. Stephen’s Armenian Elementary School of Watertown and Avedisian School of Yerevan</h3>
-                                <p>01 Sep, 2018</p>
-                                <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 21 }) }}">Read More</a>
+                        {% for item in features %}
+                            <div class="col-md-3">
+                                <div class="third-content" style="background: url('../uploads/images/{{ item.image }}') no-repeat; background-size: cover; height: 400px;">
+                                    <h3>{{ item.title }}</h3>
+                                    {% if item.LinkType != 'video' %}
+                                        <p>{{ item.createdAt.format('d M, Y') }}</p>
+                                    {% endif %}
+                                    {% if item.LinkType == 'outter' %}
+                                        <a target="_blank" href="{{ item.Link }}">Read More</a>
+                                    {% elseif item.LinkType == 'inner' %}
+                                        <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
+                                            <button> Donate</button>
+                                        </a>
+                                    {% endif %}
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="second-content" style="background: url('../uploads/images/article-2.png') no-repeat; background-size: cover; height: 400px;">
-                                <h3>Illustrated Newsletter Brings Forests and Wildlife of Armenia to a Young Audience</h3>
-                                <p>05 Feb, 2018</p>
-                                <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 20 }) }}">Read More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="third-content" style="background: url('../uploads/images/photo6.jpg') no-repeat; background-size: cover; height: 400px;">
-                                <h3>Call for Annual Tree Planting in Goris</h3>
-                                <button href="/en/donation"> Donate</button>
-                            </div>
-                        </div>
+                        {% endfor %}
+{#                        <div class="col-md-3">#}
+{#                            <div class="second-content" style="background: url('../uploads/images/article-2.png') no-repeat; background-size: cover; height: 400px;">#}
+{#                                <h3>Illustrated Newsletter Brings Forests and Wildlife of Armenia to a Young Audience</h3>#}
+{#                                <p>05 Feb, 2018</p>#}
+{#                                <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 20 }) }}">Read More</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="col-md-3">#}
+{#                            <div class="third-content" style="background: url('../uploads/images/photo6.jpg') no-repeat; background-size: cover; height: 400px;">#}
+{#                                <h3>Call for Annual Tree Planting in Goris</h3>#}
+{#                                <button href="/en/donation"> Donate</button>#}
+{#                            </div>#}
+{#                        </div>#}
                     </div>
                 </div>
             </section>
