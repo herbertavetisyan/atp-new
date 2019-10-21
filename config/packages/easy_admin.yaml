@@ -180,7 +180,14 @@ easy_admin:
                 fields:
                     - { property: 'title', type: 'text', label: 'Full Name' }
                     - { property: 'text', type: 'text', label: 'Position' }
-                    - { property: 'branch' , type: 'choice', type_options: {choices: {'atp':'atp', 'nursery':'nursery', 'armenia':'armenia' }}}
+                    - { property: 'branch' , type: 'choice', type_options: {choices: {'CHIVA NURSERY':'CHIVA NURSERY',
+                                                                                      'MIRAK NURSERY':'MIRAK NURSERY',
+                                                                                      'KHACHPAR NURSERY':'KHACHPAR NURSERY',
+                                                                                      'KARIN NURSERY':'KARIN NURSERY',
+                                                                                      'ATP YEREVAN, ARMENIA':'ATP YEREVAN, ARMENIA',
+                                                                                      'ATP SOUTHERN CALIFORNIA, USA':'ATP SOUTHERN CALIFORNIA, USA',
+                                                                                      'ATP BOSTON, MASSACHUSETTS':'ATP BOSTON, MASSACHUSETTS' }}}
+                    - { property: 'branchType' , type: 'choice', type_options: {choices: {'atp':'atp', 'nursery':'nursery'}}}
                     - { property: 'number', label: 'Order' }
                     - { property: 'imageFile', type: 'vich_image' }
             search:
