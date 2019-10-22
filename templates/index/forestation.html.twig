@@ -150,34 +150,34 @@
                 </div>
             </section>
 
-            <section class="community-last-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4>FEATURED CONTENT</h4>
-                        </div>
-                        <div class="row">
+{#            <section class="community-last-section">#}
+{#                <div class="container">#}
+{#                    <div class="row">#}
+{#                        <div class="col-md-12">#}
+{#                            <h4>FEATURED CONTENT</h4>#}
+{#                        </div>#}
+{#                        <div class="row">#}
 
-                        </div>
-                    </div>
-                    <div class="row">
-                        {% for item in features %}
-                            <div class="col-md-3">
-                                <div class="third-content" style="background: url('../uploads/images/{{ item.image }}') no-repeat; background-size: cover; height: 400px;">
-                                    <h3>{{ item.title }}</h3>
-                                    {% if item.LinkType != 'video' %}
-                                        <p>{{ item.createdAt.format('d M, Y') }}</p>
-                                    {% endif %}
-                                    {% if item.LinkType == 'outter' %}
-                                        <a target="_blank" href="{{ item.Link }}">Read More</a>
-                                    {% elseif item.LinkType == 'inner' %}
-                                        <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
-                                            <button> Donate</button>
-                                        </a>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        {% endfor %}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="row">#}
+{#                        {% for item in features %}#}
+{#                            <div class="col-md-3">#}
+{#                                <div class="third-content" style="background: url('../uploads/images/{{ item.image }}') no-repeat; background-size: cover; height: 400px;">#}
+{#                                    <h3>{{ item.title }}</h3>#}
+{#                                    {% if item.LinkType != 'video' %}#}
+{#                                        <p>{{ item.createdAt.format('d M, Y') }}</p>#}
+{#                                    {% endif %}#}
+{#                                    {% if item.LinkType == 'outter' %}#}
+{#                                        <a target="_blank" href="{{ item.Link }}">Read More</a>#}
+{#                                    {% elseif item.LinkType == 'inner' %}#}
+{#                                        <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">#}
+{#                                            <button> Donate</button>#}
+{#                                        </a>#}
+{#                                    {% endif %}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        {% endfor %}#}
 
 {#                        <div class="col-md-3">#}
 {#                            <div class="second-content" style="background: url('../uploads/images/photo.png') no-repeat; background-size: cover; height: 400px;">#}
@@ -187,6 +187,50 @@
 {#                            </div>#}
 {#                        </div>#}
 
+{#                    </div>#}
+{#                </div>#}
+{#            </section>#}
+            <section id="news" class="news-section">
+                <div class="container">
+                    <h4>{% trans %} FEATURED CONTENT {% endtrans %}</h4>
+                    <div class="grid-container">
+
+                        {% for item in features %}
+
+                            <div class="grid-item" style="background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover;">
+                                <div class="single-grid-content">
+                                    {% autoescape %}
+                                        <h3>{{ item.Title|raw }}</h3>
+                                    {% endautoescape %}
+                                    {% if item.LinkType != 'video' %}
+                                        <p>{{ item.createdAt.format('d M, Y') }}</p>
+                                    {% endif %}
+                                    {% if item.LinkType == 'outter' %}
+                                        <a target="_blank" href="{{ item.Link }}">Read More</a>
+                                    {% elseif item.LinkType == 'inner' %}
+                                        <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
+                                            <button> Donate</button>
+                                        </a>
+                                    {% elseif item.LinkType == 'video' %}
+                                        <a  data-toggle="modal" data-target="#about_atp_video"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
+                                        <div class="modal fade" id="about_atp_video" tabindex="-1" role="dialog" aria-labelledby="about_atp_video"
+                                             aria-hidden="true">
+                                            <div class="modal-dialogg">
+                                                <div class="modal-contentt">
+                                                    <div class="modal-body">
+                                                        <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal"
+                                                                aria-hidden="true">&times;</button>
+                                                        <div class="video-container">
+                                                            <iframe width="560" height="315" src="{{ item.Link }}" frameborder="0"  allowfullscreen></iframe>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </section>
