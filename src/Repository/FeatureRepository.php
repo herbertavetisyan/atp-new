@@ -38,4 +38,22 @@ class FeatureRepository extends ServiceEntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    /**
+     * @param $linkName
+     * @return mixed
+     */
+    public function findByLinkNameIndex($linkName)
+    {
+        $qb = $this->createQueryBuilder("feature");
+        $qb
+            ->select("feature, entityLang, tags")
+            ->leftJoin("feature.entityLang", "entityLang")
+            ->innerJoin("feature.tag", "tags", 'WITH', 'tags.text=:tag')
+            ->setParameter('tag', $linkName)
+            ->orderBy('tags.title', 'ASC')
+            ->setMaxResults(6);
+
+        return $qb->getQuery()->getResult();
+    }
 }
