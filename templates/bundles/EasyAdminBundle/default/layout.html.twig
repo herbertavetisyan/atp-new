@@ -32,6 +32,13 @@
                     <a href="{{currentPath}}&lang=hy">ՀԱՅ</a>
                 {% endif %}
             </li>
+            <li>
+                {% if app.request.locale == 'ru' %}
+                    <a href="{{currentPath}}&lang=ru" style="color: #6FD054;">RU</a>
+                {% else %}
+                    <a href="{{currentPath}}&lang=ru">RU</a>
+                {% endif %}
+            </li>
         </ul>
 
     <style>
