@@ -1,7 +1,7 @@
 easy_admin:
     site_name: 'ATP Admin Panel'
     list:
-        max_results: 5
+        max_results: 50
     entities:
         News:
             class: App\Entity\News
@@ -234,14 +234,12 @@ easy_admin:
                 fields:
                     - { property: 'id' }
                     - { property: 'title' }
-                    - { property: 'position' }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
             show:
                 fields:
                     - { property: 'id' }
                     - { property: 'title' }
                     - { property: 'link_type'  }
-                    - { property: 'position'  }
                     - { property: 'image', type: 'image', base_path: '%app.path.images%' }
 
             form:
@@ -249,7 +247,6 @@ easy_admin:
                     - { property: 'title', type: 'text' }
                     - { property: 'link', type: 'text' }
                     - { property: 'link_type' , type: 'choice', type_options: {choices: {'inner':'inner', 'outter':'outter', 'video':'video' }}}
-                    - { property: 'position' , type: 'choice', type_options: {choices: {'first':'first', 'second':'second', 'third':'third' }}}
                     - { property: 'imageFile', type: 'vich_image' }
                     - { property: 'tag', type_options: { multiple: true } }
                     - { property: 'createdAt', type: 'date' }
@@ -265,10 +262,12 @@ easy_admin:
                 title: "Featured Tags"
                 fields:
                     - { property: 'title', label: 'Tag Name' }
+                    - { property: 'text', label: 'Tag position' }
             show:
             form:
                 fields:
                     - { property: 'title', lable: 'Tag Name', type: 'text' }
+                    - { property: 'text', lable: 'Tag position', type: 'text' }
             search:
                 fields:
                     - property: 'entityLang.title'

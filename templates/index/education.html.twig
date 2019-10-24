@@ -116,35 +116,56 @@
                     </div>
                     <div class="row">
                         {% for item in features %}
-                            <div class="col-md-3">
-                                <div class="third-content" style="background: url('../uploads/images/{{ item.image }}') no-repeat; background-size: cover; height: 400px;">
-                                    <h3>{{ item.title }}</h3>
-                                    {% if item.LinkType != 'video' %}
+                            {% if item.tag[0].title == 'education1' %}
+                                <div class="col-md-6">
+                                    <div class="first-content-video" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
+                                        <div class="support-families">
+                                            <div class="title-and-play-button-wrapper">
+                                                {% autoescape %}
+                                                    <h3>{{ item.title|raw }}</h3>
+                                                {% endautoescape %}
+                                                <a  data-toggle="modal" data-target="#how_planting_works"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div class="modal fade" id="how_planting_works" tabindex="-1" role="dialog" aria-labelledby="how_planting_works"
+                                             aria-hidden="true">
+                                            <div class="modal-dialogg">
+                                                <div class="modal-contentt">
+                                                    <div class="modal-body">
+                                                        <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal"
+                                                                aria-hidden="true">&times;</button>
+                                                        <div class="video-container">
+                                                            <iframe width="560" height="315" src="{{ item.Link }}" frameborder="0"  allowfullscreen></iframe>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% elseif  item.tag[0].title == 'education2' %}
+                                <div class="col-md-3">
+                                    <div class="second-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
+                                        {% autoescape %}
+                                            <h3>{{ item.title|raw }}</h3>
+                                        {% endautoescape %}
                                         <p>{{ item.createdAt.format('d M, Y') }}</p>
-                                    {% endif %}
-                                    {% if item.LinkType == 'outter' %}
-                                        <a target="_blank" href="{{ item.Link }}">Read More</a>
-                                    {% elseif item.LinkType == 'inner' %}
-                                        <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
+                                        <a href="{{ item.Link }}">Read More</a>
+                                    </div>
+                                </div>
+                            {% elseif  item.tag[0].title == 'education3' %}
+                                <div class="col-md-3">
+                                    <div class="third-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
+                                        {% autoescape %}
+                                            <h3>{{ item.title|raw }}</h3>
+                                        {% endautoescape %}
+                                        <a href="{{ item.Link }}">
                                             <button> Donate</button>
                                         </a>
-                                    {% endif %}
+                                    </div>
                                 </div>
-                            </div>
+                            {% endif %}
                         {% endfor %}
-{#                        <div class="col-md-3">#}
-{#                            <div class="second-content" style="background: url('../uploads/images/article-2.png') no-repeat; background-size: cover; height: 400px;">#}
-{#                                <h3>Illustrated Newsletter Brings Forests and Wildlife of Armenia to a Young Audience</h3>#}
-{#                                <p>05 Feb, 2018</p>#}
-{#                                <a href="{{ path('app.get_news_collection', {'lang': app.request.locale, 'id': 20 }) }}">Read More</a>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="col-md-3">#}
-{#                            <div class="third-content" style="background: url('../uploads/images/photo6.jpg') no-repeat; background-size: cover; height: 400px;">#}
-{#                                <h3>Call for Annual Tree Planting in Goris</h3>#}
-{#                                <button href="/en/donation"> Donate</button>#}
-{#                            </div>#}
-{#                        </div>#}
                     </div>
                 </div>
             </section>

@@ -29,11 +29,13 @@ class FeatureRepository extends ServiceEntityRepository
     {
         $qb = $this->createQueryBuilder("feature");
         $qb
-            ->select("feature, entityLang")
+            ->select("feature, entityLang, tags")
             ->leftJoin("feature.entityLang", "entityLang")
-            ->innerJoin("feature.tag", "tags", 'WITH', 'tags.title=:tag')
-            ->setParameter('tag', $linkName);
-//        dump($qb);die;
+            ->innerJoin("feature.tag", "tags", 'WITH', 'tags.text=:tag')
+            ->setParameter('tag', $linkName)
+            ->orderBy('tags.title', 'ASC')
+            ->setMaxResults(3);
+
         return $qb->getQuery()->getResult();
     }
 }

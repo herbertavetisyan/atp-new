@@ -301,7 +301,7 @@ class IndexController extends AbstractController
     public function mission(Request $request)
     {
         $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
-
+//dump($features);die;
         return $this->render('index/our-mission.html.twig', [
             'features' => $features
         ]);

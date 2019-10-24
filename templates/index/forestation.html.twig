@@ -190,30 +190,30 @@
 {#                    </div>#}
 {#                </div>#}
 {#            </section>#}
-            <section id="news" class="news-section">
+            <section class="community-last-section">
                 <div class="container">
-                    <h4>{% trans %} FEATURED CONTENT {% endtrans %}</h4>
-                    <div class="grid-container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>FEATURED CONTENT</h4>
+                        </div>
+                        <div class="row">
 
+                        </div>
+                    </div>
+                    <div class="row">
                         {% for item in features %}
-
-                            <div class="grid-item" style="background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover;">
-                                <div class="single-grid-content">
-                                    {% autoescape %}
-                                        <h3>{{ item.Title|raw }}</h3>
-                                    {% endautoescape %}
-                                    {% if item.LinkType != 'video' %}
-                                        <p>{{ item.createdAt.format('d M, Y') }}</p>
-                                    {% endif %}
-                                    {% if item.LinkType == 'outter' %}
-                                        <a target="_blank" href="{{ item.Link }}">Read More</a>
-                                    {% elseif item.LinkType == 'inner' %}
-                                        <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
-                                            <button> Donate</button>
-                                        </a>
-                                    {% elseif item.LinkType == 'video' %}
-                                        <a  data-toggle="modal" data-target="#about_atp_video"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
-                                        <div class="modal fade" id="about_atp_video" tabindex="-1" role="dialog" aria-labelledby="about_atp_video"
+                            {% if item.tag[0].title == 'forestation1' %}
+                                <div class="col-md-6">
+                                    <div class="first-content-video" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
+                                        <div class="support-families">
+                                            <div class="title-and-play-button-wrapper">
+                                                {% autoescape %}
+                                                    <h3>{{ item.title|raw }}</h3>
+                                                {% endautoescape %}
+                                                <a  data-toggle="modal" data-target="#how_planting_works"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div class="modal fade" id="how_planting_works" tabindex="-1" role="dialog" aria-labelledby="how_planting_works"
                                              aria-hidden="true">
                                             <div class="modal-dialogg">
                                                 <div class="modal-contentt">
@@ -227,9 +227,30 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    {% endif %}
+                                    </div>
                                 </div>
-                            </div>
+                            {% elseif  item.tag[0].title == 'forestation2' %}
+                                <div class="col-md-3">
+                                    <div class="second-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
+                                        {% autoescape %}
+                                            <h3>{{ item.title|raw }}</h3>
+                                        {% endautoescape %}
+                                        <p>{{ item.createdAt.format('d M, Y') }}</p>
+                                        <a href="{{ item.Link }}">Read More</a>
+                                    </div>
+                                </div>
+                            {% elseif  item.tag[0].title == 'forestation3' %}
+                                <div class="col-md-3">
+                                    <div class="third-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
+                                        {% autoescape %}
+                                            <h3>{{ item.title|raw }}</h3>
+                                        {% endautoescape %}
+                                        <a href="{{ item.Link }}">
+                                            <button> Donate</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endif %}
                         {% endfor %}
                     </div>
                 </div>
