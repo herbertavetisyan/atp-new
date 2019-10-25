@@ -261,13 +261,13 @@ easy_admin:
             list:
                 title: "Featured Tags"
                 fields:
-                    - { property: 'title', label: 'Tag Name' }
-                    - { property: 'text', label: 'Tag position' }
+                    - { property: 'title', label: 'position' }
+                    - { property: 'text', label: 'page' }
             show:
             form:
                 fields:
-                    - { property: 'title', lable: 'Tag Name', type: 'text' }
-                    - { property: 'text', lable: 'Tag position', type: 'text' }
+                    - { property: 'title', type: 'text',  label: 'position' }
+                    - { property: 'text', type: 'text', label: 'page' }
             search:
                 fields:
                     - property: 'entityLang.title'
