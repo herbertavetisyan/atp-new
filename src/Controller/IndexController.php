@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Branches;
 use App\Entity\Certificate;
 use App\Entity\Events;
+use App\Entity\Gallery;
 use App\Entity\Slide;
 use App\Entity\Team;
 use App\Entity\TeamBranch;
@@ -339,6 +340,8 @@ class IndexController extends AbstractController
      */
     public function tour()
     {
+        $em = $this->getDoctrine()->getManager('old');
+        dump($em);die;
         return $this->render('index/tour.html.twig');
     }
 
@@ -667,7 +670,7 @@ class IndexController extends AbstractController
     public function photo()
     {
         $photo = $this->getDoctrine()
-            ->getRepository(Photo::class)
+            ->getRepository(Gallery::class)
             ->findAll();
 
         return $this->render('index/photo-viewer.html.twig', [
