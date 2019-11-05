@@ -46,17 +46,20 @@ easy_admin:
                 fields:
                     - { property: 'id' }
                     - { property: 'title' }
-                    - { property: 'pdf' }
+                    - { property: 'pdfHy' }
+                    - { property: 'pdfEn' }
             show:
                 fields:
                     - { property: 'id' }
                     - { property: 'title' }
-                    - { property: 'pdfName' }
+                    - { property: 'pdfHy' }
+                    - { property: 'pdfEn' }
 
             form:
                 fields:
                     - { property: 'title', type: 'text' }
-                    - { property: 'pdfFile', type: 'vich_image' }
+                    - { property: 'pdfFileHy', type: 'vich_image' }
+                    - { property: 'pdfFileEn', type: 'vich_image' }
 
         Magazine:
             class: App\Entity\Magazine
@@ -66,7 +69,7 @@ easy_admin:
                 fields:
                     - { property: 'id' }
                     - { property: 'title' }
-                    - { property: 'pdf' }
+                    - { property: 'pdfHy' }
             show:
                 fields:
                     - { property: 'id' }
@@ -246,7 +249,7 @@ easy_admin:
                 fields:
                     - { property: 'title', type: 'text' }
                     - { property: 'link', type: 'text' }
-                    - { property: 'link_type' , type: 'choice', type_options: {choices: {'inner':'inner', 'outter':'outter', 'video':'video' }}}
+                    - { property: 'link_type' , type: 'choice', type_options: {choices: {'Donate':'Donate', 'Read More':'Read More', 'video':'video' }}}
                     - { property: 'imageFile', type: 'vich_image' }
                     - { property: 'tag', type_options: { multiple: true } }
                     - { property: 'createdAt', type: 'date' }
