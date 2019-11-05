@@ -13,7 +13,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 trait PdfEntity
 {
     /**
-     * @ORM\Column(type="string", length=256, nullable=false)
+     * @ORM\Column(type="string", length=256, nullable=true)
      * @var string
      */
     private $pdfHy;
@@ -25,7 +25,7 @@ trait PdfEntity
     private $pdfFileHy;
 
     /**
-     * @ORM\Column(type="string", length=256, nullable=false)
+     * @ORM\Column(type="string", length=256, nullable=true)
      * @var string
      */
     private $pdfEn;
