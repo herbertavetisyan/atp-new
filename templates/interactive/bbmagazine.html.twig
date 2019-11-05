@@ -52,7 +52,12 @@
                         {% autoescape %}
                                 <h5>{{ item.Title|raw }}</h5>
                         {% endautoescape %}
-                        <a target="_blank" class="english-version" href="/uploads/pdf/{{ item.pdf }}">DOWNLOAD</a>
+                        {% if item.PathEng is not null %}
+                            <a target="_blank" class="english-version" href="{{ item.pdfEn }}">ENG</a>
+                        {% endif %}
+                        {% if item.PathArm is not null %}
+                            <a target="_blank" class="armenian-version" href="{{ item.pdfHy }}">ARM</a>
+                        {% endif %}
                     </div>
                     {% if total == 3 %}
                         </div>
