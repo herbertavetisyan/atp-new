@@ -132,7 +132,7 @@
                                         <a href="{{ path('team', {'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Our Team {% endtrans %}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('mission',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Mission & History {% endtrans %}</a>
+                                        <a href="{{ path('mission',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Kids & Family {% endtrans %}</a>
                                     </li>
                                     {#<li>#}
                                         {#<a href="#">Partners and Supporters</a>#}
@@ -141,7 +141,7 @@
                             </li>
                             <li class="dropdown">
                                 <a id="kids_family" class="page-scroll"  href="{{ path('kids',{'lang': app.request.locale }) }}"  role="button"
-                                   aria-haspopup="true" aria-expanded="false">{% trans from "messages" into lang %} Mission & History {% endtrans %}</a>
+                                   aria-haspopup="true" aria-expanded="false">{% trans from "messages" into lang %} Kids & Family {% endtrans %}</a>
                                 <ul class="dropdown-menu" aria-labelledby="kids_family">
                                     <li>
                                         <a href="{{ path('interactive',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Building Bridges Interactive {% endtrans %}</a>
@@ -177,22 +177,46 @@
                                 </a>
                             </li>
 
-                            <ul class="admin-language-switcher hidden" aria-labelledby="language_selector">
-                                {#<li>#}
-                                    {#{% if app.request.locale == 'en' %}#}
-                                        {#<a href="{{ path('language',{'lang': 'en'}) }}" style="color: #6FD054;">EN</a>#}
-                                    {#{% else %}#}
-                                        {#<a href="{{ path('language',{'lang': 'en'}) }}">EN</a>#}
-                                    {#{% endif %}#}
-                                {#</li>#}
-                                {#<li>#}
-                                    {#{% if app.request.locale == 'hy' %}#}
-                                        {#<a href="{{ path('language',{'lang': 'hy'}) }}" style="color: #6FD054;">ՀԱՅ</a>#}
-                                    {#{% else %}#}
-                                        {#<a href="{{ path('language',{'lang': 'hy'}) }}">ՀԱՅ</a>#}
-                                    {#{% endif %}#}
-                                {#</li>#}
+                            <li class="dropdown hidden">
+                                <a id="language_switcher" class="page-scroll"  href="#"  role="button"
+                                   aria-haspopup="true" aria-expanded="false">EN</a>
+                            <ul class="dropdown-menu" aria-labelledby="language_switcher">
+                                <li>
+                                    {% if app.request.locale == 'en' %}
+                                        <a href="#" style="color: #6FD054;">EN</a>
+                                    {% else %}
+                                        <a href="#">EN</a>
+                                    {% endif %}
+                                </li>
+                                <li>
+                                    {% if app.request.locale == 'hy' %}
+                                        <a href="#" style="color: #6FD054;">ՀԱՅ</a>
+                                    {% else %}
+                                        <a href="#">ՀԱՅ</a>
+                                    {% endif %}
+                                </li>
+                                <li>
+                                    {% if app.request.locale == 'hy' %}
+                                        <a href="#" style="color: #6FD054;">ՀԱՅ</a>
+                                    {% else %}
+                                        <a href="#">ՀԱՅ</a>
+                                    {% endif %}
+                                </li>
                             </ul>
+
+                            </li>
+
+                            <select class="language-switcher-dropdown">
+                                <option value="en">
+                                    <a href="#">EN</a>
+                                </option>
+                                <option value="hy">
+                                    <a href="#">ՀԱՅ</a>
+                                </option>
+                                <option value="ru">
+                                    <a href="#">RU</a>
+                                </option>
+                            </select>
 
                             {#<li class="dropdown language-selector-dropdown">#}
                                 {#<a id="language_selector" class="page-scroll" href="" data-toggle="dropdown" role="button"#}
