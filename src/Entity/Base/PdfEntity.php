@@ -16,37 +16,75 @@ trait PdfEntity
      * @ORM\Column(type="string", length=256, nullable=false)
      * @var string
      */
-    private $pdf;
+    private $pdfHy;
 
     /**
-     * @Vich\UploadableField(mapping="news_pdf", fileNameProperty="pdf")
+     * @Vich\UploadableField(mapping="news_pdf", fileNameProperty="pdfHy")
      * @var File
      */
-    private $pdfFile;
+    private $pdfFileHy;
 
-    public function getPdf()
+    /**
+     * @ORM\Column(type="string", length=256, nullable=false)
+     * @var string
+     */
+    private $pdfEn;
+
+    /**
+     * @Vich\UploadableField(mapping="news_pdf", fileNameProperty="pdfEn")
+     * @var File
+     */
+    private $pdfFileEn;
+
+    public function getPdfHy()
     {
-        return $this->pdf;
+        return $this->pdfHy;
     }
 
-    public function setPdf($pdf)
+    public function setPdfHy($pdfHy)
     {
-        $this->pdf = $pdf;
+        $this->pdfHy = $pdfHy;
 
         return $this;
     }
 
-    public function setPdfFile(File $pdf = null)
+    public function setPdfFileHy(File $pdfHy = null)
     {
-        $this->pdfFile = $pdf;
+        $this->pdfFileHy = $pdfHy;
 
-        if ($pdf) {
+        if ($pdfHy) {
             $this->updatedAt = new \DateTime('now');
         }
     }
 
-    public function getPdfFile()
+    public function getPdfFileHy()
     {
-        return $this->pdfFile;
+        return $this->pdfFileHy;
+    }
+
+    public function getPdfEn()
+    {
+        return $this->pdfEn;
+    }
+
+    public function setPdfEn($pdfEn)
+    {
+        $this->pdfEn = $pdfEn;
+
+        return $this;
+    }
+
+    public function setPdfFileEn(File $pdfEn = null)
+    {
+        $this->pdfFileEn = $pdfEn;
+
+        if ($pdfEn) {
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getPdfFileEn()
+    {
+        return $this->pdfFileEn;
     }
 }
