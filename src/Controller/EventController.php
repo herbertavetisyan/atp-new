@@ -146,7 +146,7 @@ class EventController extends AbstractController
             $events = $new_events;
         }
 
-        $localEvents = $this->eventManager->homePageEvents($lang);
+        $localEvents = $this->eventManager->getEvents($lang);
 
         $oldEvents = $events;
 

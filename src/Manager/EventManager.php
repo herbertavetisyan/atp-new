@@ -43,4 +43,14 @@ class EventManager extends BaseManager
         $event = $this->repository->getHomepageEvents($lang);
         return $event;
     }
+
+    /**
+     * @param $lang
+     * @return Event
+     */
+    public function getEvents($lang)
+    {
+        $event = $this->repository->getEvents($lang);
+        return $event;
+    }
 }
