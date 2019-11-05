@@ -48,14 +48,14 @@
                         <div class="row">
                     {% endif %}
                     <div class="col-sm-4 col-xs-12 text-center">
-                        <img src="../uploads/images/{{ item.Image }}" alt="">
+                        <img src="../uploads/images/{{ item.image }}" alt="">
                         {% autoescape %}
-                                <h5>{{ item.Title|raw }}</h5>
+                                <h5>{{ item.title|raw }}</h5>
                         {% endautoescape %}
-                        {% if item.PathEng is not null %}
+                        {% if item.pdfEn is not null %}
                             <a target="_blank" class="english-version" href="{{ item.pdfEn }}">ENG</a>
                         {% endif %}
-                        {% if item.PathArm is not null %}
+                        {% if item.pdfHy is not null %}
                             <a target="_blank" class="armenian-version" href="{{ item.pdfHy }}">ARM</a>
                         {% endif %}
                     </div>
