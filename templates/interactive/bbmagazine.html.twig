@@ -53,10 +53,10 @@
                                 <h5>{{ item.title|raw }}</h5>
                         {% endautoescape %}
                         {% if item.pdfEn is not null %}
-                            <a target="_blank" class="english-version" href="/public/uploads/pdf{{ item.pdfEn }}">ENG</a>
+                            <a target="_blank" class="english-version" href="../uploads/pdf/{{ item.pdfEn }}">ENG</a>
                         {% endif %}
                         {% if item.pdfHy is not null %}
-                            <a target="_blank" class="armenian-version" href="{{ item.pdfHy }}">ARM</a>
+                            <a target="_blank" class="armenian-version" href="../uploads/pdf/{{ item.pdfHy }}">ARM</a>
                         {% endif %}
                     </div>
                     {% if total == 3 %}
