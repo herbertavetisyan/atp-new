@@ -163,6 +163,9 @@
                             <li>
                                 <a class="page-scroll" data-target=".navbar-collapse" href="{{ path('app.get_news_collection', {'lang': app.request.locale }) }}">News</a>
                             </li>
+                            <li class="anniversary-link-wrapper">
+                                <a class="page-scroll" style="padding-top: 0; margin-top: -6px" data-target=".navbar-collapse" href="{{ path('anniversary',{'lang': app.session.get('lang') }) }}"><img src="../img/25th-anniversary.svg" alt=""></a>
+                            </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li class="search-button-wrapper hidden">
