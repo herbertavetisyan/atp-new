@@ -340,8 +340,8 @@ class IndexController extends AbstractController
      */
     public function tour()
     {
-        $em = $this->getDoctrine()->getManager('old');
-        dump($em);die;
+//        $em = $this->getDoctrine()->getManager('old');
+//        dump($em);die;
         return $this->render('index/tour.html.twig');
     }
 

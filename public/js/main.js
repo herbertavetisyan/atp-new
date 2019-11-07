@@ -125,6 +125,7 @@ $(function() {
         dropdown.firstElementChild.classList.add('active');
     }
 
+    activePage.classList.add('active');
 });
 
 $( ".search-button" ).on('click', function(e) {

@@ -13,9 +13,9 @@
                 </div>
                 <div class="col-sm-6 cover-text">
                     {% autoescape %}
-                        <p>Over 38 families in Armenia have harvested
-                            over 40,000 trees, increasing their family
-                            income by an average of over 30%.</p>
+                        <p>Over <span>38</span> families in Armenia have harvested
+                            over <span>40,000</span> trees, increasing their family
+                            income by an average of over <span>30%</span>.</p>
                     {% endautoescape %}
                 </div>
             </div>
@@ -130,33 +130,33 @@
                     </div>
                 </div>
                 <div class="row">
-                    {% for item in bottom %}
-                        {% if item.Position == 'first' %}
-                            <div class="col-md-6">
-                                <div class="first-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
-                        {% elseif item.Position == 'second' %}
-                            <div class="col-md-3">
-                                <div class="second-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
-                        {% elseif item.Position == 'third' %}
-                            <div class="col-md-3">
-                                <div class="third-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
-                        {% endif %}
-                        {% autoescape %}
-                            <h3>
-                                {{ item.Text|raw }}
-                            </h3>
-                        {% endautoescape %}
-                        {% if item.LinkType == 'outter' %}
-                            <a href="{{ item.Link }}">
-                                <button> Donate</button>
-                            </a>
-                        {% elseif item.LinkType == 'inner' %}
-                            <p>{{ item.createdAt.format('d M, Y') }}</p>
-                            <a href="{{ item.Link }}">Read More</a>
-                        {% endif %}
-                                </div>
-                            </div>
-                    {% endfor %}
+{#                    {% for item in bottom %}#}
+{#                        {% if item.Position == 'first' %}#}
+{#                            <div class="col-md-6">#}
+{#                                <div class="first-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">#}
+{#                        {% elseif item.Position == 'second' %}#}
+{#                            <div class="col-md-3">#}
+{#                                <div class="second-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">#}
+{#                        {% elseif item.Position == 'third' %}#}
+{#                            <div class="col-md-3">#}
+{#                                <div class="third-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">#}
+{#                        {% endif %}#}
+{#                        {% autoescape %}#}
+{#                            <h3>#}
+{#                                {{ item.Text|raw }}#}
+{#                            </h3>#}
+{#                        {% endautoescape %}#}
+{#                        {% if item.LinkType == 'outter' %}#}
+{#                            <a href="{{ item.Link }}">#}
+{#                                <button> Donate</button>#}
+{#                            </a>#}
+{#                        {% elseif item.LinkType == 'inner' %}#}
+{#                            <p>{{ item.createdAt.format('d M, Y') }}</p>#}
+{#                            <a href="{{ item.Link }}">Read More</a>#}
+{#                        {% endif %}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                    {% endfor %}#}
                 </div>
             </div>
         </section>

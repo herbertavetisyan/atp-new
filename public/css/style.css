@@ -122,6 +122,35 @@ nav.navbar .navbar-nav li.dropdown ul li a:hover {
     padding: 0 15px;
 }
 
+
+.language-switcher-dropdown {
+    margin-top: 35px;
+    margin-left: 0;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-family: "GoogleSans-Regular", sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+nav.navbar.scrolled-mode .language-switcher-dropdown {
+    color: #000000;
+}
+
+nav.navbar.scrolled-mode .language-switcher-dropdown option{
+    background: #ffffff;
+}
+
+.language-switcher-dropdown option{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.language-switcher-dropdown option:hover {
+    box-shadow: 0 0 10px 100px #000 inset !important;
+}
+
 .admin-language-switcher li:nth-child(2) a{
     color: #ffffff;
     border: none;
@@ -1346,6 +1375,23 @@ ul.dropdown-menu > li.sub-dropdown:hover > ul.sub-dropdown-group {
     border-radius: 5px;
 }
 
+.community-last-section .events-page-link{
+    color: #6FD054;
+    border: 1px solid #6FD054;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 12px 22px;
+    margin-left: 0;
+}
+
+.community-last-section .single-event {
+    width: 100%;
+    padding-top: 150px;
+    margin-bottom: 60px;
+    border-radius: 5px;
+    padding-right: 20px;
+}
+
 .community-last-section h3 {
     color: #FFFFFF;
     font-size: 20px;
@@ -2418,6 +2464,47 @@ ul.dropdown-menu > li.sub-dropdown:hover > ul.sub-dropdown-group {
     margin-left: -16px;
     font-size: 16px;
 }
+
+.tour-and-plant-content-wrapper .atp-tours-details-content {
+    background: #333333;
+    padding: 60px 0 45px 0;
+    margin: 90px 0;
+}
+
+.tour-and-plant-content-wrapper .tour-and-plant-third {
+    padding-top: 0;
+}
+
+.tour-and-plant-content-wrapper .atp-tours-details-content h4{
+    color: #FFFFFF;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.tour-and-plant-content-wrapper .atp-tours-details-content ul li::before {
+    content: none;
+}
+
+.tour-and-plant-content-wrapper .atp-tours-details-content ul {
+    padding-left: 0;
+}
+
+.tour-and-plant-content-wrapper .atp-tours-details-content ul li {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: "GoogleSans-Regular", sans-serif;
+}
+
+.tour-and-plant-content-wrapper .atp-tours-details-content p {
+    color: #FFFFFF;
+    padding-top: 15px;
+    font-size: 20px;
+}
+
+.tour-and-plant-content-wrapper .atp-tours-details-content p span {
+    color: #6FD054;
+}
+
 .event-registration-content {
     margin-top: 50px;
 }
@@ -3321,7 +3408,7 @@ ul.dropdown-menu > li.sub-dropdown:hover > ul.sub-dropdown-group {
 .impact-info-graph {
     background: url("../img/infoo@2x.png") no-repeat;
     background-size: contain;
-    height: 700px;
+    height: 825px;
     display: flex;
     justify-content: center;
     align-items: center;
