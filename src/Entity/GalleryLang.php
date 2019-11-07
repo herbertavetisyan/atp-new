@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class GalleryLang
 {
-    use BaseEntity, LangEntity, ImageEntity;
+    use BaseEntity, LangEntity;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
