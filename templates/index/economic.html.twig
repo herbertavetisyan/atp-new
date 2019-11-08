@@ -80,6 +80,7 @@
                 <div class="row">
                     {% for item in features %}
                         {% if item.tag[0].title == 'economic1' %}
+                            {{ dump(item.tag[0].title) }}
                             <div class="col-md-6">
                                 <div class="first-content-video" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
                                     <div class="support-families">
@@ -108,6 +109,8 @@
                             </div>
                         {% endif %}
                         {% if  item.tag[0].title == 'economic2' %}
+                            {{ dump(item.tag[0].title) }}
+
                             <div class="col-md-3">
                                 <div class="second-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
                                     {% autoescape %}
@@ -119,6 +122,8 @@
                             </div>
                         {% endif %}
                         {% if item.tag[0].title == 'economic3' %}
+                            {{ dump(item.tag[0].title) }}
+
                             <div class="col-md-3">
                                 <div class="third-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
                                     {% autoescape %}
