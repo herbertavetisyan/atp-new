@@ -98,7 +98,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a class="page-scroll" data-target=".navbar-collapse" href="{{ path('where',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Where We Are {% endtrans %}</a>
+                                <a class="page-scroll" data-target=".navbar-collapse" href="{{ path('forestsummit',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Forest Summit {% endtrans %}</a>
                             </li>
                             <li class="dropdown">
                                 <a id="getInvolved" class="page-scroll" href="#" data-toggle="dropdown" role="button"
@@ -134,9 +134,9 @@
                                     <li>
                                         <a href="{{ path('mission',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Mission & History {% endtrans %}</a>
                                     </li>
-                                    {#<li>#}
-                                        {#<a href="#">Partners and Supporters</a>#}
-                                    {#</li>#}
+                                    <li>
+                                        <a  href="{{ path('where',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Where We Are {% endtrans %}</a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="dropdown">
