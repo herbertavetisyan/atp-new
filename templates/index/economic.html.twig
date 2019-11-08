@@ -106,7 +106,8 @@
                                     </div>
                                 </div>
                             </div>
-                        {% elseif  item.tag[0].title == 'economic2' %}
+                        {% endif %}
+                        {% if  item.tag[0].title == 'economic2' %}
                             <div class="col-md-3">
                                 <div class="second-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
                                     {% autoescape %}
@@ -116,7 +117,8 @@
                                     <a href="{{ item.Link }}">Read More</a>
                                 </div>
                             </div>
-                        {% elseif  item.tag[0].title == 'economic3' %}
+                        {% endif %}
+                        {% if item.tag[0].title == 'economic3' %}
                             <div class="col-md-3">
                                 <div class="third-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
                                     {% autoescape %}
