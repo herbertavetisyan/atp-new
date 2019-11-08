@@ -4,10 +4,10 @@
             <div class="col-sm-8 col-xs-12">
                 <ul class="secondary-navbar">
                     <li>
-                        <a class="{{ app.request.get('_route') == 'ecogames' ? 'active' }}" href="{{ path('ecogames') }}">EcoGames</a>
+                        <a class="{{ app.request.get('_route') == 'ecogames' ? 'active' }}" href="{{ path('ecogames', {lang: app.request.locale}) }}">EcoGames</a>
                     </li>
                     <li>
-                        <a class="{{ app.request.get('_route') == 'bbmagazine' ? 'active' }}"href="{{ path('bbmagazine') }}">Magazines</a>
+                        <a class="{{ app.request.get('_route') == 'bbmagazine' ? 'active' }}"href="{{ path('bbmagazine', {lang: app.request.locale}) }}">Magazines</a>
                     </li>
                     <li>
                         <a class="{{ app.request.get('_route') == 'videos' ? 'active' }}"href="{{ path('videos', {lang: app.request.locale}) }}">Videos</a>
@@ -16,15 +16,15 @@
                         <a class="{{ app.request.get('_route') == 'tchalo' ? 'active' }}" href="{{ path('tchalo', {lang: app.request.locale}) }}">Meet Tchalo!</a>
                     </li>
                     <li>
-                        <a class="{{ app.request.get('_route') == 'coloring' ? 'active' }}" href="{{ path('coloring') }}">Coloring</a>
+                        <a class="{{ app.request.get('_route') == 'coloring' ? 'active' }}" href="{{ path('coloring', {lang: app.request.locale}) }}">Coloring</a>
                     </li>
                     <li>
-                        <a class="{{ app.request.get('_route') == 'treevia' ? 'active' }}" href="{{ path('treevia') }}">Treevia!</a>
+                        <a class="{{ app.request.get('_route') == 'treevia' ? 'active' }}" href="{{ path('treevia', {lang: app.request.locale}) }}">Treevia!</a>
                     </li>
                 </ul>
             </div>
             <div class="col-sm-4 col-xs-12 text-right">
-                <a href="{{ path('interactive') }}">
+                <a href="{{ path('interactive', {lang: app.request.locale}) }}">
                     <img src="../img/bb-interactive.svg" alt="">
                 </a>
             </div>

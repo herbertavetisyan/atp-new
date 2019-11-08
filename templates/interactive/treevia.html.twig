@@ -9,27 +9,27 @@
                     <div class="col-sm-8 col-xs-12">
                         <ul class="secondary-navbar">
                             <li>
-                                <a href="{{ path('ecogames') }}">EcoGames</a>
+                                <a href="{{ path('ecogames', { 'lang': app.request.locale }) }}">EcoGames</a>
                             </li>
                             <li>
-                                <a href="{{ path('bbmagazine') }}">Magazines</a>
+                                <a href="{{ path('bbmagazine', { 'lang': app.request.locale }) }}">Magazines</a>
                             </li>
                             <li>
-                                <a href="{{ path('videos') }}">Videos</a>
+                                <a href="{{ path('videos', { 'lang': app.request.locale }) }}">Videos</a>
                             </li>
                             <li>
-                                <a href="{{ path('tchalo') }}">Meet Tchalo!</a>
+                                <a href="{{ path('tchalo', { 'lang': app.request.locale }) }}">Meet Tchalo!</a>
                             </li>
                             <li>
-                                <a href="{{ path('coloring') }}">Coloring</a>
+                                <a href="{{ path('coloring', { 'lang': app.request.locale }) }}">Coloring</a>
                             </li>
                             <li>
-                                <a href="{{ path('treevia') }}">Treevia!</a>
+                                <a href="{{ path('treevia', { 'lang': app.request.locale }) }}">Treevia!</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-sm-4 col-xs-12 text-right">
-                        <a href="{{ path('interactive') }}">
+                        <a href="{{ path('interactive', { 'lang': app.request.locale }) }}">
                             <img src="../img/bb-interactive.svg" alt="">
                         </a>
                     </div>
@@ -59,32 +59,48 @@
                 <h4>TREEVIA</h4>
                 <p>Watch Tigran’s videos and learn about our enviroment</p>
                 <div class="row">
-                    {% for item in content %}
-                        <div class="col-sm-4 col-xs-12">
-                            <div class="treevia-video-one" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover;">
-                                <div class="title-and-play-button-wrapper">
-                                    {% autoescape %}
-                                            <h3>{{ item.Title|raw }}</h3>
-                                    {% endautoescape %}
-                                    <a  data-toggle="modal" data-target="#m{{ item.id }}"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
-                                </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="treevia-video-one" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../uploads/images/treevia-video-one.png') no-repeat; background-size: cover;">
+                            <div class="title-and-play-button-wrapper">
+                                <h3>TREEvia Episode 1: <br>
+                                    Why do trees change <br> color</h3>
+                                <a data-toggle="modal" data-target="#m1"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
                             </div>
-                            <div class="modal fade" id="m{{ item.id }}" tabindex="-1" role="dialog" aria-labelledby="m{{ item.id }}"
-                                 aria-hidden="true">
-                                <div class="modal-dialogg">
-                                    <div class="modal-contentt">
-                                        <div class="modal-body">
-                                            <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal"
-                                                    aria-hidden="true">&times;</button>
-                                            <div class="video-container">
-                                                <iframe width="560" height="315" src="{{ item.link }}" frameborder="0"  allowfullscreen></iframe>
-                                            </div>
+                        </div>
+                        <div class="modal fade" id="m1" tabindex="-1" role="dialog" aria-labelledby="m1" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialogg">
+                                <div class="modal-contentt">
+                                    <div class="modal-body">
+                                        <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <div class="video-container">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/BhZ2KV7yrl4" frameborder="0" allowfullscreen=""></iframe>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    {% endfor %}
+                    </div>
+                    <div class="col-sm-4 col-xs-12">
+                        <div class="treevia-video-one" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../uploads/images/treevia-video-two.png') no-repeat; background-size: cover;">
+                            <div class="title-and-play-button-wrapper">
+                                <h3>TREEvia Episode 2: <br>
+                                    How do tree survive in <br> winter?</h3>
+                                <a data-toggle="modal" data-target="#m2"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="m2" tabindex="-1" role="dialog" aria-labelledby="m2" aria-hidden="true">
+                            <div class="modal-dialogg">
+                                <div class="modal-contentt">
+                                    <div class="modal-body">
+                                        <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <div class="video-container">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/01JrXKIff-E" frameborder="0" allowfullscreen=""></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-sm-4 col-xs-12">
 
                     </div>
@@ -174,7 +190,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ path('contact') }}">Contact Us</a>
+                            <a href="{{ path('contact', { 'lang': app.request.locale }) }}">Contact Us</a>
                         </li><li>
                             <a href="#">Privacy Policy</a>
                         </li>

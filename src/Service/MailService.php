@@ -88,14 +88,14 @@ class MailService
     public function sendTreeviaEmail($html, $toEmail)
     {
         $client = new Client();
-//        $client->request("POST", $this->mailGunURL, [
-//            "form_params" => [
-//                "from" => 'Armenia Tree Project '.$this->mailFrom,
-//                "to" => $toEmail,
-//                "subject" => "New Treevia Question!",
-//                "html" => $html->getContent(),
-//                "text" => "Treevia"
-//            ],
-//        ]);
+        $client->request("POST", $this->mailGunURL, [
+            "form_params" => [
+                "from" => 'Armenia Tree Project '.$this->mailFrom,
+                "to" => $toEmail,
+                "subject" => "New Treevia Question!",
+                "html" => $html,
+                "text" => "Treevia",
+            ],
+        ]);
     }
 }

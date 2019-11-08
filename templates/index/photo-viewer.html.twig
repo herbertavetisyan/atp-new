@@ -11,7 +11,7 @@
                         <div class="col-sm-4 col-xs-12">
                             <a class="fancybox" data-fancybox="gallery{{ item.id }}" href="../uploads/images/{{ item.image }}">
                                 <div class="single-gallery t-shirt-sightings" style="background:url('../uploads/images/{{ item.Image }}') no-repeat; background-size:cover;">
-                                        <p>{{ item.name.text|raw }}</p>
+                                        <p>{{ item.entityLang[0].text|raw }}</p>
                                 </div>
                             </a>
                             <div class="hidden">

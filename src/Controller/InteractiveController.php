@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Magazine;
 use App\Entity\Slide;
+use App\Entity\Treevia;
 use App\Entity\Video;
 use App\Service\MailService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,6 +13,10 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type;
 
+/**
+ * @Route("/{lang}")
+ * @return
+ */
 class InteractiveController extends AbstractController
 {
     public $lang='eng';
@@ -83,7 +88,7 @@ class InteractiveController extends AbstractController
     }
 
     /**
-     * @Route("/{lang}/videos", name="videos")
+     * @Route("/videos", name="videos")
      */
     public function videos()
     {
@@ -102,7 +107,7 @@ class InteractiveController extends AbstractController
     }
 
     /**
-     * @Route("/{lang}/tchalo", name="tchalo")
+     * @Route("/tchalo", name="tchalo")
      */
     public function tchalo(Request $request)
     {
@@ -145,7 +150,7 @@ class InteractiveController extends AbstractController
 
             $entityManager = $this->getDoctrine()->getManager();
 
-            $question = new TreeviaQuestion();
+            $question = new Treevia();
             $question->setFirstName($data['firstName']);
             $question->setLastName($data['lastName']);
             $question->setEmail($data['email']);
@@ -156,7 +161,7 @@ class InteractiveController extends AbstractController
 
             $entityManager->flush();
 
-            /** @var  $template */
+            /** @var  Treevia $treevia */
             $template = $this->render("email/treevia.html.twig", [
                 "question" => $question
             ]);

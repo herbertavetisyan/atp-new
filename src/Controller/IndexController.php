@@ -681,7 +681,7 @@ class IndexController extends AbstractController
         $lang = ucfirst($request->getLocale());
 
         $photo = $this->galleryManager->getPhoto($lang);
-
+//dump($photo);die;
         return $this->render('index/photo-viewer.html.twig', [
             'photo' => $photo
         ]);
