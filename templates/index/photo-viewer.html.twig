@@ -9,15 +9,15 @@
 
                     {% for item in photo %}
                         <div class="col-sm-4 col-xs-12">
-                            <a class="fancybox" data-fancybox="gallery{{ item.id }}" href="../uploads/images/{{ item.Image }}">
+                            <a class="fancybox" data-fancybox="gallery{{ item.id }}" href="../uploads/images/{{ item.image }}">
                                 <div class="single-gallery t-shirt-sightings" style="background:url('../uploads/images/{{ item.Image }}') no-repeat; background-size:cover;">
-                                        <p>{{ item.text|raw }}</p>
+                                        <p>{{ item.name.text|raw }}</p>
                                 </div>
                             </a>
                             <div class="hidden">
                                 {% for elem in item.images %}
-                                <a class="fancybox" data-fancybox="gallery{{ item.id }}" href="../uploads/images/{{ elem.Image }}">
-                                    <img src="../uploads/images/{{ elem.Image }}" alt=""/>
+                                <a class="fancybox" data-fancybox="gallery{{ item.id }}" href="../uploads/images/{{ elem.image }}">
+                                    <img src="../uploads/images/{{ elem.image }}" alt=""/>
                                 </a>
                                 {% endfor %}
                             </div>

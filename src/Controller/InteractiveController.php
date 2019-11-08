@@ -62,12 +62,7 @@ class InteractiveController extends AbstractController
      */
     public function ecogames()
     {
-        $content = $this->getDoctrine()
-            ->getRepository(Ecogames::class)
-            ->findAll();
-
         return $this->render('interactive/ecogames.html.twig', [
-            'content' => $content,
             'lang' => $this->lang,
         ]);
     }

@@ -10,23 +10,19 @@
             <h4>VIDEOS</h4>
             <div class="row">
                 <div class="col-md-8 col-xs-12">
-                    <div class="bb-video-one" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../uploads/images/{{ top.Image }}') no-repeat; background-size: cover;">
+                    <div class="bb-video-one" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../uploads/images/tchalo.png') no-repeat; background-size: cover;">
                         <div class="title-and-play-button-wrapper">
-                            {% autoescape %}
-                                    <h3>{{ top.Title|raw }}</h3>
-                            {% endautoescape %}
-                            <a  data-toggle="modal" data-target="#bb-videos-one"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
+                            <h3>Tchalo Fire Prevention PSA</h3>
+                            <a data-toggle="modal" data-target="#bb-videos-one"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
                         </div>
                     </div>
-                    <div class="modal fade" id="bb-videos-one" tabindex="-1" role="dialog" aria-labelledby="bb-videos-one"
-                         aria-hidden="true">
+                    <div class="modal fade" id="bb-videos-one" tabindex="-1" role="dialog" aria-labelledby="bb-videos-one" aria-hidden="true">
                         <div class="modal-dialogg">
                             <div class="modal-contentt">
                                 <div class="modal-body">
-                                    <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal"
-                                            aria-hidden="true">&times;</button>
+                                    <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                     <div class="video-container">
-                                        <iframe width="560" height="315" src="{{ top.link }}" frameborder="0"  allowfullscreen></iframe>
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/iWI-vvxJV4I" frameborder="0" allowfullscreen=""></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -34,38 +30,98 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-xs-12">
-                    {% autoescape %}
-                            <p>{{ top.Text|raw }}</p>
-                    {% endautoescape %}
+                    <p>The Tchalo video was produced in
+                        partnership with The TUMO Center
+                        as part  of a high school project.<br><br>
+
+                        Tchalo, the gampr dog created by Alik Arzoumanian for ATP’s Building Bridges education campaign, speaks on behalf of the trees. The Tchalo character has been teaching about forest fire prevention including the impact of parking in dry and high grass, appropriate cigarette disposal procedures, and proper fire and campfire protocols.</p>
                 </div>
             </div>
             <div class="row">
-                {% for item in content %}
-                    <div class="col-sm-4 col-xs-12">
-                        <div class="bb-video-two" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover;">
-                            <div class="title-and-play-button-wrapper">
-                                {% autoescape %}
-                                        <h3>{{ item.Title|raw }}</h3>
-                                {% endautoescape %}
-                                <a  data-toggle="modal" data-target="#m{{ item.id }}"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
-                            </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="bb-video-two" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../uploads/images/video3.jpg') no-repeat; background-size: cover;">
+                        <div class="title-and-play-button-wrapper">
+                            <h3>TREEvia Episode 1:<br>
+                                Why do trees change color?</h3>
+                            <a data-toggle="modal" data-target="#m1"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
                         </div>
-                        <div class="modal fade" id="m{{ item.id }}" tabindex="-1" role="dialog" aria-labelledby="m{{ item.id }}"
-                             aria-hidden="true">
-                            <div class="modal-dialogg">
-                                <div class="modal-contentt">
-                                    <div class="modal-body">
-                                        <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal"
-                                                aria-hidden="true">&times;</button>
-                                        <div class="video-container">
-                                            <iframe width="560" height="315" src="{{ item.link }}" frameborder="0"  allowfullscreen></iframe>
-                                        </div>
+                    </div>
+                    <div class="modal fade" id="m1" tabindex="-1" role="dialog" aria-labelledby="m1" aria-hidden="true">
+                        <div class="modal-dialogg">
+                            <div class="modal-contentt">
+                                <div class="modal-body">
+                                    <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <div class="video-container">
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/BhZ2KV7yrl4" frameborder="0" allowfullscreen=""></iframe>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                {% endfor %}
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="bb-video-two" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../uploads/images/Screen Shot 2018-12-28 at 2.22.28 PM.png') no-repeat; background-size: cover;">
+                        <div class="title-and-play-button-wrapper">
+                            <h3>TREEvia Episode 2:<br>
+                                How do trees survive<br>
+                                in winter?</h3>
+                            <a data-toggle="modal" data-target="#m2"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="m2" tabindex="-1" role="dialog" aria-labelledby="m2" aria-hidden="true">
+                        <div class="modal-dialogg">
+                            <div class="modal-contentt">
+                                <div class="modal-body">
+                                    <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <div class="video-container">
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/01JrXKIff-E" frameborder="0" allowfullscreen=""></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="bb-video-two" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../uploads/images/video4.jpg') no-repeat; background-size: cover;">
+                        <div class="title-and-play-button-wrapper">
+                            <h3>#GetRooted with Building<br>
+                                Bridges</h3>
+                            <a data-toggle="modal" data-target="#m3"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="m3" tabindex="-1" role="dialog" aria-labelledby="m3" aria-hidden="true">
+                        <div class="modal-dialogg">
+                            <div class="modal-contentt">
+                                <div class="modal-body">
+                                    <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <div class="video-container">
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/OF8cIi4mW_Q" frameborder="0" allowfullscreen=""></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="bb-video-two" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../uploads/images/v2.png') no-repeat; background-size: cover;">
+                        <div class="title-and-play-button-wrapper">
+                            <h3>Something New: <br> A Short Film by Armenia Tree Project</h3>
+                            <a data-toggle="modal" data-target="#m4"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="m4" tabindex="-1" role="dialog" aria-labelledby="m4" aria-hidden="true">
+                        <div class="modal-dialogg">
+                            <div class="modal-contentt">
+                                <div class="modal-body">
+                                    <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <div class="video-container">
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/9fTnmC03xsc" frameborder="0" allowfullscreen=""></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

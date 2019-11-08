@@ -18,4 +18,23 @@ class GalleryRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Gallery::class);
     }
+
+    /**
+     * @param $lang
+     * @return Gallery
+     */
+    public function getPhotos($lang)
+    {
+        $qb = $this->createQueryBuilder('g')
+            ->select('g', 'l', 'i')
+            ->leftJoin('g.entityLang', 'l')
+            ->leftJoin('g.images', 'i')
+            ->where("l.lang = :lang")
+            ->setParameter('lang', $lang)
+            ->getQuery();
+
+        $result = $qb->getResult();
+
+        return $result;
+    }
 }

@@ -155,16 +155,21 @@
                                     <li>
                                         <a href="{{ path('tchalo',{'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Fire Safety & Prevention {% endtrans %}</a>
                                     </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="page-scroll" id="media" data-target=".navbar-collapse" href="#">Media</a>
+                                <ul class="dropdown-menu" aria-labelledby="media">
+                                    <li>
+                                        <a  href="{{ path('app.get_news_collection', {'lang': app.request.locale }) }}">News</a>
+                                    </li>
                                     <li>
                                         <a href="{{ path('photo', {'lang': app.request.locale }) }}">{% trans from "messages" into lang %} Photo Viewer {% endtrans %}</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li>
-                                <a class="page-scroll" data-target=".navbar-collapse" href="{{ path('app.get_news_collection', {'lang': app.request.locale }) }}">News</a>
-                            </li>
                             <li class="anniversary-link-wrapper">
-                                <a class="page-scroll" style="padding-top: 0; margin-top: -6px" data-target=".navbar-collapse" href="{{ path('anniversary',{'lang': app.session.get('lang') }) }}"><img src="../img/25th-anniversary.svg" alt=""></a>
+                                <a class="page-scroll" style="padding-top: 0; margin-top: -6px" data-target=".navbar-collapse" href="{{ path('anniversary', {'lang': app.request.locale('lang')} ) }}"><img src="../img/25th-anniversary.svg" alt=""></a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
@@ -209,31 +214,35 @@
 
                             </li>
 
-                            <select class="language-switcher-dropdown">
-                                <option value="en">
-                                    <a href="#">EN</a>
-                                </option>
-                                <option value="hy">
-                                    <a href="#">ՀԱՅ</a>
-                                </option>
-                                <option value="ru">
-                                    <a href="#">RU</a>
-                                </option>
-                            </select>
+{#                            <select class="language-switcher-dropdown">#}
+{#                                <option value="en">#}
+{#                                    <a href="#">EN</a>#}
+{#                                </option>#}
+{#                                <option value="hy">#}
+{#                                    <a href="#">ՀԱՅ</a>#}
+{#                                </option>#}
+{#                                <option value="ru">#}
+{#                                    <a href="#">RU</a>#}
+{#                                </option>#}
+{#                            </select>#}
 
-                            {#<li class="dropdown language-selector-dropdown">#}
-                                {#<a id="language_selector" class="page-scroll" href="" data-toggle="dropdown" role="button"#}
-                                   {#aria-haspopup="true" aria-expanded="false">EN</a>#}
-                                {#<img class="carret-icon" src="./img/arrow-right.svg" alt="">#}
-                                {#<ul class="dropdown-menu" aria-labelledby="language_selector">#}
-                                    {#<li>#}
-                                        {#<a href="{{ path('language',{'lang': 'arm'}) }}">ՀԱՅ</a>#}
-                                    {#</li>#}
-                                    {#<li>#}
-                                        {#<a href="{{ path('language',{'lang': 'eng'}) }}">EN</a>#}
-                                    {#</li>#}
-                                {#</ul>#}
-                            {#</li>#}
+{#                            <ul class="admin-language-switcher hidden" aria-labelledby="language_selector">#}
+{#                                <li>#}
+{#                                    {% if app.session.get('lang') == 'en' %}#}
+{#                                        <a href="{{ path('language',{'lang': 'en'}) }}" style="color: #6FD054;">EN</a>#}
+{#                                    {% else %}#}
+{#                                        <a href="{{ path('language',{'lang': 'en'}) }}">EN</a>#}
+{#                                    {% endif %}#}
+{#                                </li>#}
+{#                                <li>#}
+{#                                    {% if app.session.get('lang') == 'hy' %}#}
+{#                                        <a href="{{ path('language',{'lang': 'hy'}) }}" style="color: #6FD054;">ՀԱՅ</a>#}
+{#                                    {% else %}#}
+{#                                        <a href="{{ path('language',{'lang': 'hy'}) }}">ՀԱՅ</a>#}
+{#                                    {% endif %}#}
+{#                                </li>#}
+{#                            </ul>#}
+
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->

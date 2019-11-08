@@ -3,39 +3,39 @@
 
     {% block body %}
 
-    <section class="bridges-interactive-secondary-menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-xs-12">
-                    <ul class="secondary-navbar">
-                        <li>
-                            <a href="{{ path('ecogames') }}">EcoGames</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('bbmagazine') }}">Magazines</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('videos') }}">Videos</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('tchalo') }}">Meet Tchalo!</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('coloring') }}">Coloring</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('treevia') }}">Treevia!</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-xs-12 text-right">
-                    <a href="{{ path('interactive') }}">
-                        <img src="../img/bb-interactive.svg" alt="">
-                    </a>
+        <section class="bridges-interactive-secondary-menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-xs-12">
+                        <ul class="secondary-navbar">
+                            <li>
+                                <a href="{{ path('ecogames', {'lang': app.request.locale }) }}">EcoGames</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('bbmagazine', {'lang': app.request.locale }) }}">Magazines</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('videos', {'lang': app.request.locale }) }}">Videos</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('tchalo', {'lang': app.request.locale }) }}">Meet Tchalo!</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('coloring', {'lang': app.request.locale }) }}">Coloring</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('treevia', {'lang': app.request.locale }) }}">Treevia!</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 col-xs-12 text-right">
+                        <a href="{{ path('interactive') }}">
+                            <img src="../img/bb-interactive.svg" alt="">
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
     <section class="bb-magazines-and-games-wrapper coloring-page">
@@ -80,7 +80,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ path('contact') }}">Contact Us</a>
+                            <a href="{{ path('contact', {'lang': app.request.locale }) }}">Contact Us</a>
                         </li><li>
                             <a href="#">Privacy Policy</a>
                         </li>

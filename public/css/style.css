@@ -125,7 +125,7 @@ nav.navbar .navbar-nav li.dropdown ul li a:hover {
 
 .language-switcher-dropdown {
     margin-top: 35px;
-    margin-left: 0;
+    margin-left: -3px;
     border: none;
     background-color: transparent;
     outline: none;

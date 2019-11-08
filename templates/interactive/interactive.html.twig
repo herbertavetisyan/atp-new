@@ -43,16 +43,36 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="owl-carousel owl-theme">
-                        {% for item in slider %}
-                            <div class="bb-slide-one" style="background:url('../uploads/images/{{ item.Image }}') no-repeat; background-size:cover; background-position: 0; height: 550px">
-                                <div class="bb-slide-text-wrapper">
-                                    {% autoescape %}
-                                        <p>{{ item.Title|raw }}</p>
-                                        <h1>{{ item.Text|raw }}</h1>
-                                    {% endautoescape %}
-                                </div>
+                        <div class="bb-slide-one" style="background:url('../uploads/images/DJI_0125 (1).JPG') no-repeat; background-size:cover; background-position: 0; height: 550px">
+                            <div class="bb-slide-text-wrapper">
+                                <p>SUSTAIN</p>
+                                <h1>Ensuring a high survival of trees while enriching the soil, water, air quality, and harvest</h1>
                             </div>
-                        {% endfor %}
+                        </div>
+                        <div class="bb-slide-one" style="background:url('../uploads/images/DSC_04982233.jpg') no-repeat; background-size:cover; background-position: 0; height: 550px">
+                            <div class="bb-slide-text-wrapper">
+                                <p>EMPOWER</p>
+                                <h1>Providing economic independence through employment and enterprise opportunities</h1>
+                            </div>
+                        </div>
+                        <div class="bb-slide-one" style="background:url('../uploads/images/Diramayr Hayastani camp 2019 (1).JPG') no-repeat; background-size:cover; background-position: 0; height: 550px">
+                            <div class="bb-slide-text-wrapper">
+                                <p>TEACH</p>
+                                <h1><p>Building awareness between healthy trees and preservation, and the role of individual and community in the environment</p></h1>
+                            </div>
+                        </div>
+                        <div class="bb-slide-one" style="background:url('../uploads/images/1 - Copy.JPG') no-repeat; background-size:cover; background-position: 0; height: 550px">
+                            <div class="bb-slide-text-wrapper">
+                                <p>CELEBRATE</p>
+                                <h1>Celebrating the past and protecting the future</h1>
+                            </div>
+                        </div>
+                        <div class="bb-slide-one" style="background:url('../uploads/images/Group 963.png') no-repeat; background-size:cover; background-position: 0; height: 550px">
+                            <div class="bb-slide-text-wrapper">
+                                <p>JOIN THE DISCUSSION</p>
+                                <h1>Catalyzing improvements in forest conservation and restoration in&nbsp;Armenia and internationally: Oct 20-23, 2019</h1>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -62,29 +82,69 @@
 
     <section class="bb-interactive-pictured-menu">
         <div class="container">
-            {% set total = 1 %}
             <div class="row">
-                {% for item in bottom %}
-                    {% if total == 4 %}
-                        <div class="row">
-                    {% endif %}
-                    <div class="col-sm-4 col-xs-12">
-{#                        <a href="{{ item.path }}">#}
-                            <div>
-                                <img src="../uploads/images/{{ item.Image }}" alt="">
-                                <div class="menu-title games" >
-                                    {% autoescape %}
-                                        <p>{{ item.title|raw }}</p>
-                                    {% endautoescape %}
-                                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <a href="ecogames">
+                        <div>
+                            <img src="../uploads/images/Jrahovitkindergarten.jpg" alt="">
+                            <div class="menu-title games" style="background-color: #CE4EFF;">
+                                <p>Games</p>
                             </div>
-                        </a>
-                    </div>
-                    {% if total == 3 %}
                         </div>
-                    {% endif %}
-                    {% set total = total + 1 %}
-                {% endfor %}
+                    </a>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <a href="bbmagazine">
+                        <div>
+                            <img src="../uploads/images/magazines-menu-photo.png" alt="">
+                            <div class="menu-title games" style="background-color: #6FD054;">
+                                <p>Magazines</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <a href="treevia">
+                        <div>
+                            <img src="../uploads/images/IMG_5865.jpg" alt="">
+                            <div class="menu-title games" style="background-color: #4EADFF;">
+                                <p>Treevia!</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    <a href="videos">
+                        <div>
+                            <img src="../uploads/images/rsz_new-video.jpg" alt="">
+                            <div class="menu-title games" style="background-color: #F5C934;">
+                                <p>Videos</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <a href="coloring">
+                        <div>
+                            <img src="../uploads/images/coloring-menu-photo.png" alt="">
+                            <div class="menu-title games" style="background-color: #FA6400;">
+                                <p>Coloring</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <a href="tchalo">
+                        <div>
+                            <img src="../uploads/images/tchalo-menu-photo.png" alt="">
+                            <div class="menu-title games" style="background-color: #EF2323;">
+                                <p>Meet Tchalo!</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>

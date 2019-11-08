@@ -9,22 +9,22 @@
                 <div class="col-sm-8 col-xs-12">
                     <ul class="secondary-navbar">
                         <li>
-                            <a href="{{ path('ecogames') }}">EcoGames</a>
+                            <a href="{{ path('ecogames', {'lang': app.request.locale }) }}">EcoGames</a>
                         </li>
                         <li>
-                            <a href="{{ path('bbmagazine') }}">Magazines</a>
+                            <a href="{{ path('bbmagazine', {'lang': app.request.locale }) }}">Magazines</a>
                         </li>
                         <li>
-                            <a href="{{ path('videos') }}">Videos</a>
+                            <a href="{{ path('videos', {'lang': app.request.locale }) }}">Videos</a>
                         </li>
                         <li>
-                            <a href="{{ path('tchalo') }}">Meet Tchalo!</a>
+                            <a href="{{ path('tchalo', {'lang': app.request.locale }) }}">Meet Tchalo!</a>
                         </li>
                         <li>
-                            <a href="{{ path('coloring') }}">Coloring</a>
+                            <a href="{{ path('coloring', {'lang': app.request.locale }) }}">Coloring</a>
                         </li>
                         <li>
-                            <a href="{{ path('treevia') }}">Treevia!</a>
+                            <a href="{{ path('treevia', {'lang': app.request.locale }) }}">Treevia!</a>
                         </li>
                     </ul>
                 </div>
@@ -41,22 +41,29 @@
     <section class="bb-magazines-and-games-wrapper eco-games-wrapper">
         <div class="container">
             <h4>ECO GAMES</h4>
-            {% set total = 0 %}
             <div class="row">
-            {% for item in content %}
-                {% if total % 3 == 0 and total != 0 %}
-                    </div>
-                    <div class="row">
-                {% endif %}
-                    {% set total = total + 1 %}
-                    <div class="col-sm-4 col-xs-12 text-center">
-                        <img class="eco-games-images" src="../uploads/images/{{ item.Image }}" alt="">
-                        {% autoescape %}
-                                <h5>{{ item.Title|raw }}</h5>
-                        {% endautoescape %}
-                        <a target="_blank" class="english-version" href="{{ item.Path }}">DOWNLOAD</a>
-                    </div>
-                {% endfor %}
+                <div class="col-sm-4 col-xs-12 text-center">
+                    <img class="eco-games-images" src="../uploads/images/eco-games-one.png" alt="">
+                    <h5>The Carbon Footprint game</h5>
+                    <a target="_blank" class="english-version" href="/eco-games/TheCarbonFootprint.pdf">DOWNLOAD</a>
+                </div>
+                <div class="col-sm-4 col-xs-12 text-center">
+                    <img class="eco-games-images" src="../uploads/images/page4.jpg" alt="">
+                    <h5>Crack The Code</h5>
+                    <a target="_blank" class="english-version" href="/eco-games/CrackTheCode.pdf">DOWNLOAD</a>
+                </div>
+                <div class="col-sm-4 col-xs-12 text-center">
+                    <img class="eco-games-images" src="../uploads/images/every drop.jpg" alt="">
+                    <h5>Every Drop Counts</h5>
+                    <a target="_blank" class="english-version" href="/eco-games/EveryDropCounts.pdf">DOWNLOAD</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-xs-12 text-center">
+                    <img class="eco-games-images" src="../uploads/images/page8-01.jpg" alt="">
+                    <h5>Spot The Difference</h5>
+                    <a target="_blank" class="english-version" href="/eco-games/SpotTheDifference.pdf">DOWNLOAD</a>
+                </div>
             </div>
         </div>
     </section>
@@ -93,7 +100,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ path('contact') }}">Contact Us</a>
+                            <a href="{{ path('contact', {'lang': app.request.locale }) }}">Contact Us</a>
                         </li><li>
                             <a href="#">Privacy Policy</a>
                         </li>

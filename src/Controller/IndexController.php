@@ -12,6 +12,7 @@ use App\Entity\TeamBranch;
 use App\Form\Type\InterestType;
 use App\Manager\EventManager;
 use App\Manager\FeatureManager;
+use App\Manager\GalleryManager;
 use App\Manager\TeamManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -52,6 +53,10 @@ class IndexController extends AbstractController
      * @var TeamManager
      */
     private $teamManager;
+    /**
+     * @var GalleryManager
+     */
+    private $galleryManager;
 
     /**
      * IndexController constructor.
@@ -65,6 +70,7 @@ class IndexController extends AbstractController
         FeatureManager $featureManager,
         EntityManagerInterface $em,
         EventManager $eventManager,
+        GalleryManager $galleryManager,
         TeamManager $teamManager
     )
     {
@@ -73,6 +79,7 @@ class IndexController extends AbstractController
         $this->em = $em;
         $this->eventManager = $eventManager;
         $this->teamManager = $teamManager;
+        $this->galleryManager = $galleryManager;
     }
 
     /**
@@ -666,12 +673,14 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/photo", name="photo")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function photo()
+    public function photo(Request $request)
     {
-        $photo = $this->getDoctrine()
-            ->getRepository(Gallery::class)
-            ->findAll();
+        $lang = ucfirst($request->getLocale());
+
+        $photo = $this->galleryManager->getPhoto($lang);
 
         return $this->render('index/photo-viewer.html.twig', [
             'photo' => $photo
