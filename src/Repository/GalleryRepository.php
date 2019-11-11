@@ -31,7 +31,7 @@ class GalleryRepository extends ServiceEntityRepository
             ->leftJoin('g.images', 'i')
             ->where("l.lang = :lang")
             ->setParameter('lang', $lang)
-            ->orderBy('DESC')
+            ->orderBy('g.id', 'DESC')
         ->getQuery();
 
         $result = $qb->getResult();
