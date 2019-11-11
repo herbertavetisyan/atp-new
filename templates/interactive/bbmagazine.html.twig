@@ -50,7 +50,7 @@
                     <div class="col-sm-4 col-xs-12 text-center">
                         <img src="../uploads/images/{{ item.image }}" alt="">
                         {% autoescape %}
-                                <h5>{{ item.title|raw }}</h5>
+                                <h5>{{ item.entityLang[0].title|raw }}</h5>
                         {% endautoescape %}
                         {% if item.pdfEn is not null %}
                             <a target="_blank" class="english-version" href="../uploads/pdf/{{ item.pdfEn }}">ENG</a>

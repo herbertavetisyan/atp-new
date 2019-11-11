@@ -80,7 +80,8 @@ easy_admin:
                 fields:
                     - { property: 'title', type: 'text' }
                     - { property: 'imageFile', type: 'vich_image' }
-                    - { property: 'pdfFile', type: 'vich_image' }
+                    - { property: 'pdfFileHy', type: 'vich_image' }
+                    - { property: 'pdfFileEn', type: 'vich_image' }
 
         Gallery:
             class: App\Entity\Gallery
