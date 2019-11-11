@@ -10,6 +10,12 @@ parameters:
     app.path.news_pdf: uploads/pdf
     app.path.news_video: uploads/video
 services:
+    pdo:
+        class: PDO
+        arguments:
+            - "mysql:host=157.230.23.46;port=3306;dbname=atp"
+            - 'root'
+            - 'password'
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
