@@ -6,12 +6,14 @@
                 <h4>FEATURED CONTENT</h4>
             </div>
             <div class="row">
-
             </div>
         </div>
         <div class="row">
+
+            {% set path = app.request.pathInfo|replace({'/hy/':'', '/en/':''}) %}
+
             {% for item in features %}
-                {% if item.tag[0].title == 'economic1' %}
+                {% if item.tag[0].title == path~1  %}
                     <div class="col-md-6">
                         <div class="first-content-video" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
                             <div class="support-families">
@@ -47,7 +49,7 @@
                         </div>
                     </div>
                 {% endif %}
-                {% if  item.tag[0].title == 'economic2' %}
+                {% if  item.tag[0].title == path~2 %}
                     <div class="col-md-3">
                         <div class="second-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
                             {% autoescape %}
@@ -80,7 +82,7 @@
                         </div>
                     </div>
                 {% endif %}
-                {% if item.tag[0].title == 'economic3' %}
+                {% if item.tag[0].title == path~3 %}
                     <div class="col-md-3">
                         <div class="third-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
                             {% autoescape %}
