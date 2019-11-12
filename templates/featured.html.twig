@@ -1,0 +1,118 @@
+
+<section class="community-last-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>FEATURED CONTENT</h4>
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+        <div class="row">
+            {% for item in features %}
+                {% if item.tag[0].title == 'economic1' %}
+                    <div class="col-md-6">
+                        <div class="first-content-video" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
+                            <div class="support-families">
+                                <div class="title-and-play-button-wrapper">
+                                    {% autoescape %}
+                                        <h3>{{ item.title|raw }}</h3>
+                                    {% endautoescape %}
+                                    {% if item.LinkType == 'Read More' %}
+                                        <a target="_blank" href="/{{ lang }}/{{ item.Link }}">Read More</a>
+                                    {% elseif item.LinkType == 'Donate' %}
+                                        <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
+                                            <button> Donate</button>
+                                        </a>
+                                    {% elseif item.LinkType == 'Video' %}
+                                        <a  data-toggle="modal" data-target="#about_atp_video"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
+                                        <div class="modal fade" id="about_atp_video" tabindex="-1" role="dialog" aria-labelledby="about_atp_video"
+                                             aria-hidden="true">
+                                            <div class="modal-dialogg">
+                                                <div class="modal-contentt">
+                                                    <div class="modal-body">
+                                                        <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal"
+                                                                aria-hidden="true">&times;</button>
+                                                        <div class="video-container">
+                                                            <iframe width="560" height="315" src="{{ item.Link }}" frameborder="0"  allowfullscreen></iframe>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if  item.tag[0].title == 'economic2' %}
+                    <div class="col-md-3">
+                        <div class="second-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
+                            {% autoescape %}
+                                <h3>{{ item.title|raw }}</h3>
+                            {% endautoescape %}
+                            <p>{{ item.createdAt.format('d M, Y') }}</p>
+                            {% if item.LinkType == 'Read More' %}
+                                <a target="_blank" href="/{{ lang }}/{{ item.Link }}">Read More</a>
+                            {% elseif item.LinkType == 'Donate' %}
+                                <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
+                                    <button> Donate</button>
+                                </a>
+                            {% elseif item.LinkType == 'Video' %}
+                                <a  data-toggle="modal" data-target="#about_atp_video"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
+                                <div class="modal fade" id="about_atp_video" tabindex="-1" role="dialog" aria-labelledby="about_atp_video"
+                                     aria-hidden="true">
+                                    <div class="modal-dialogg">
+                                        <div class="modal-contentt">
+                                            <div class="modal-body">
+                                                <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">&times;</button>
+                                                <div class="video-container">
+                                                    <iframe width="560" height="315" src="{{ item.Link }}" frameborder="0"  allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if item.tag[0].title == 'economic3' %}
+                    <div class="col-md-3">
+                        <div class="third-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">
+                            {% autoescape %}
+                                <h3>{{ item.title|raw }}</h3>
+                            {% endautoescape %}
+                            {% if item.LinkType == 'Read More' %}
+                                <a target="_blank" href="/{{ lang }}/{{ item.Link }}">Read More</a>
+                            {% elseif item.LinkType == 'Donate' %}
+                                <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
+                                    <button> Donate</button>
+                                </a>
+                            {% elseif item.LinkType == 'Video' %}
+                                <a  data-toggle="modal" data-target="#about_atp_video"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
+                                <div class="modal fade" id="about_atp_video" tabindex="-1" role="dialog" aria-labelledby="about_atp_video"
+                                     aria-hidden="true">
+                                    <div class="modal-dialogg">
+                                        <div class="modal-contentt">
+                                            <div class="modal-body">
+                                                <button style="color: #ffffff; opacity: 1;" type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">&times;</button>
+                                                <div class="video-container">
+                                                    <iframe width="560" height="315" src="{{ item.Link }}" frameborder="0"  allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
