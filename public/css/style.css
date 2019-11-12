@@ -13,6 +13,20 @@
     font-weight: 500;
 }
 
+@font-face {
+    font-family: 'NotoSans-Regular';
+    src: url("../fonts/NotoSansArmenian-Regular.ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'NotoSans-Bold';
+    src: url("../fonts/NotoSansArmenian-Bold.ttf");
+    font-style: normal;
+    font-weight: bold;
+}
+
 html {
     position: relative;
     min-height: 100%;
@@ -31,6 +45,17 @@ h2, h3, h4, h5, h6 {
 
 p, a {
     font-family: "GoogleSans-Regular", sans-serif;
+}
+
+
+.armenian h2, h3, h4, h5, h6 {
+    font-family: "NotoSans-Regular", sans-serif;
+    margin: 0;
+}
+
+.armenian p, a {
+    font-family: "NotoSans-Regular", sans-serif;
+    margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -124,7 +149,7 @@ nav.navbar .navbar-nav li.dropdown ul li a:hover {
 .admin-language-switcher li a{
     color: #ffffff;
     border-right: 1px #fff solid;
-    padding: 0 15px;
+    padding: 0 10px;
 }
 
 
@@ -159,19 +184,19 @@ nav.navbar.scrolled-mode .language-switcher-dropdown option{
 .admin-language-switcher li:nth-child(2) a{
     color: #ffffff;
     border: none;
-    padding: 0 15px;
+    padding: 0 10px;
 }
 
 nav.navbar.scrolled-mode .admin-language-switcher li a{
     color: #000000;
     border-right: 1px #000 solid;
-    padding: 0 15px;
+    padding: 0 10px;
 }
 
 nav.navbar.scrolled-mode .admin-language-switcher li:nth-child(2) a{
     color: #000000;
     border: none;
-    padding: 0 15px;
+    padding: 0 10px;
 }
 
 
@@ -280,6 +305,20 @@ ul.dropdown-menu > li.sub-dropdown:hover > ul.sub-dropdown-group {
     margin: 25px 12px 0 12px;
     font-family: "GoogleSans-Bold", sans-serif;
 }
+
+
+.armenian .navbar-default .donate-btn {
+    background-color: #6FD054;
+    border: none;
+    color: #fff;
+    height: 40px;
+    width: 110px;
+    border-radius: 5px;
+    margin: 25px 5px 0 5px;
+    font-family: "NotoSans-Bold", sans-serif;
+    padding: 0 5px;
+}
+
 
 .donate-btn:hover {
     background-color: rgba(0,225,105,.8);

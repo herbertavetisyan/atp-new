@@ -40,7 +40,11 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
         {% endblock %}
     </head>
+    {% if app.session.get('lang') == 'hy' %}
+    <body class="armenian">
+    {% else %}
     <body>
+    {% endif %}
         {% block nav %}
             <!-- Navigation -->
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -217,7 +221,6 @@
                             <ul class="admin-language-switcher" aria-labelledby="language_selector">
                                 <li>
                                     {% if app.session.get('lang') == 'en' %}
-
                                         <a href="{{ app.request.pathInfo }}" style="color: #6FD054;">EN</a>
                                     {% else %}
                                         {% set path = app.request.pathInfo|replace({'/hy/':'/en/'}) %}
