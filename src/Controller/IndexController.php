@@ -2,13 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Branches;
 use App\Entity\Certificate;
-use App\Entity\Events;
-use App\Entity\Gallery;
+use App\Entity\News;
 use App\Entity\Slide;
-use App\Entity\Team;
-use App\Entity\TeamBranch;
 use App\Form\Type\InterestType;
 use App\Manager\EventManager;
 use App\Manager\FeatureManager;
@@ -874,4 +870,25 @@ class IndexController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+    /**
+     * @Route("/single/{id}", name="single")
+     */
+    public function singleNews(Request $request, $id)
+    {
+        $request = Request::createFromGlobals();
+        $id = $request->query->get('id');
+
+        $news = $this->getDoctrine()
+            ->getRepository(News::class)
+            ->find($id);
+
+        $lang = ucfirst($request->getLocale());
+
+        return $this->render('index/single-news.html.twig', [
+            'news' => $news,
+            'lang' => $lang
+
+        ]);
+    }
+
 }

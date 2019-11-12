@@ -169,7 +169,7 @@
                                 </ul>
                             </li>
                             <li class="anniversary-link-wrapper">
-                                <a class="page-scroll" style="padding-top: 0; margin-top: -6px" data-target=".navbar-collapse" href="{{ path('anniversary', {'lang': app.request.locale('lang')} ) }}"><img src="../img/25th-anniversary.svg" alt=""></a>
+                                <a class="page-scroll" style="padding-top: 0; margin-top: -6px" data-target=".navbar-collapse" href="{{ path('anniversary', {'lang': app.request.locale('lang')} ) }}"><img style="width: 165px" src="../img/25th-anniversary.svg" alt=""></a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
@@ -214,31 +214,22 @@
 
                             </li>
 
-{#                            <select class="language-switcher-dropdown">#}
-{#                                <option value="en">#}
-{#                                    <a href="#">EN</a>#}
-{#                                </option>#}
-{#                                <option value="hy">#}
-{#                                    <a href="#">ՀԱՅ</a>#}
-{#                                </option>#}
-{#                                <option value="ru">#}
-{#                                    <a href="#">RU</a>#}
-{#                                </option>#}
-{#                            </select>#}
-
                             <ul class="admin-language-switcher" aria-labelledby="language_selector">
                                 <li>
                                     {% if app.session.get('lang') == 'en' %}
-                                        <a href="#" style="color: #6FD054;">EN</a>
+
+                                        <a href="{{ app.request.pathInfo }}" style="color: #6FD054;">EN</a>
                                     {% else %}
-                                        <a href="#">EN</a>
+                                        {% set path = app.request.pathInfo|replace({'/hy/':'/en/'}) %}
+                                        <a href="{{ path }}">EN</a>
                                     {% endif %}
                                 </li>
                                 <li>
                                     {% if app.session.get('lang') == 'hy' %}
-                                        <a href="#" style="color: #6FD054;">ՀԱՅ</a>
+                                        <a href="{{ app.request.pathInfo }}" style="color: #6FD054;">ՀԱՅ</a>
                                     {% else %}
-                                        <a href="#">ՀԱՅ</a>
+                                        {% set path = app.request.pathInfo|replace({'/en/':'/hy/'}) %}
+                                        <a href="{{ path }}">ՀԱՅ</a>
                                     {% endif %}
                                 </li>
                             </ul>
@@ -253,6 +244,5 @@
 
         {% block body %}
         {% endblock %}
-        {#{% block javascripts %}{% endblock %}#}
     </body>
 </html>

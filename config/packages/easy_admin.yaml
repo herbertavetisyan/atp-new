@@ -250,7 +250,7 @@ easy_admin:
                 fields:
                     - { property: 'title', type: 'text' }
                     - { property: 'link', type: 'text' }
-                    - { property: 'link_type' , type: 'choice', type_options: {choices: {'Donate':'Donate', 'Read More':'Read More', 'video':'video' }}}
+                    - { property: 'link_type' , type: 'choice', type_options: {choices: {'Donate':'Donate', 'Read More':'Read More', 'Video':'Video' }}}
                     - { property: 'imageFile', type: 'vich_image' }
                     - { property: 'tag', type_options: { multiple: true } }
                     - { property: 'createdAt', type: 'date' }

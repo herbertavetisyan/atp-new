@@ -83,24 +83,20 @@
             <div class="container">
                 <h4>{% trans %} FEATURED CONTENT {% endtrans %}</h4>
                 <div class="grid-container">
-
                     {% for item in features %}
-
                         <div class="grid-item" style="background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover;">
-                        <div class="single-grid-content">
+                            <div class="single-grid-content">
                                 {% autoescape %}
                                         <h3>{{ item.Title|raw }}</h3>
                                 {% endautoescape %}
-                                {% if item.LinkType != 'video' %}
-                                   <p>{{ item.createdAt.format('d M, Y') }}</p>
-                                {% endif %}
-                                {% if item.LinkType == 'outter' %}
-                                    <a target="_blank" href="{{ item.Link }}">Read More</a>
-                                {% elseif item.LinkType == 'inner' %}
+
+                                {% if item.LinkType == 'Read More' %}
+                                    <a target="_blank" href="/{{ lang }}/{{ item.Link }}">Read More</a>
+                                {% elseif item.LinkType == 'Donate' %}
                                     <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
                                         <button> Donate</button>
                                     </a>
-                                {% elseif item.LinkType == 'video' %}
+                                {% elseif item.LinkType == 'Video' %}
                                     <a  data-toggle="modal" data-target="#about_atp_video"><img class="play-button" src="../img/play_btn.svg" alt=""></a>
                                     <div class="modal fade" id="about_atp_video" tabindex="-1" role="dialog" aria-labelledby="about_atp_video"
                                          aria-hidden="true">
@@ -117,8 +113,8 @@
                                         </div>
                                     </div>
                                 {% endif %}
+                            </div>
                         </div>
-                    </div>
                     {% endfor %}
                 </div>
             </div>
