@@ -12,7 +12,6 @@
             </div>
         </div>
     </section>
-
     <section class="community-second">
         <div class="container">
             <div class="row">
@@ -22,64 +21,56 @@
             </div>
         </div>
     </section>
-
     <section class="community-second download-lessons-section">
         <div class="container">
-
             <div class="row">
-
                 <div class="col-sm-3 col-xs-12 text-center">
                     <img src="../img/pdf-icon.svg" alt="">
                     <h5>About ATP</h5>
-                    <a target="_blank" href="/sample-lessons/About.pdf">ENG</a>
+                    <a  class="english-version" href="/coloring-images/Farm.jpg" download>DOWNLOAD</a>
+                    <a target="_blank" href="/img/About.pdf">ENG</a>
                 </div>
-
                 <div class="col-sm-3 col-xs-12 text-center">
                     <img src="../img/pdf-icon.svg" alt="">
                     <h5>How to Plant a Tree</h5>
-                    <a target="_blank" href="/sample-lessons/HowtoPlanta.pdf">ENG</a>
+                    <a target="_blank" href="/img/HowtoPlanta.pdf">ENG</a>
                 </div>
-
                 <div class="col-sm-3 col-xs-12 text-center">
                     <img src="../img/pdf-icon.svg" alt="">
                     <h5>The Problem of Waste</h5>
-                    <a target="_blank" href="/sample-lessons/TheProblemofWaste.pdf">ENG</a>
-                    <a class="arm-version" target="_blank" href="/sample-lessons/The_Problem_of_Wastе_arm.PDF">ARM</a>
+                    <a target="_blank" href="/img/TheProblemofWaste.pdf">ENG</a>
+                    <a class="arm-version" target="_blank" href="/img/The_Problem_of_Wastе_arm.PDF">ARM</a>
                 </div>
 
                 <div class="col-sm-3 col-xs-12 text-center">
                     <img src="../img/pdf-icon.svg" alt="">
                     <h5>Climate Change</h5>
-                    <a target="_blank" href="/sample-lessons/ClimateChange.pdf">ENG</a>
-                    <a class="arm-version" target="_blank" href="/sample-lessons/Climate_change_arm.PDF">ARM</a>
+                    <a target="_blank" href="/img/ClimateChange.pdf">ENG</a>
+                    <a class="arm-version" target="_blank" href="/img/Climate_change_arm.PDF">ARM</a>
                 </div>
             </div>
             <div class="row">
-
                 <div class="col-sm-3 col-xs-12 text-center">
                     <img src="../img/pdf-icon.svg" alt="">
                     <h5>The Amazing Transformation of Water</h5>
-                    <a target="_blank" href="/sample-lessons/Amazing Transformations of Water.pdf">ENG</a>
-                    <a class="arm-version" target="_blank" href="/sample-lessons/The_Amazing_Transformation_of_Water_arm.PDF">ARM</a>
+                    <a target="_blank" href="/img/Amazing Transformations of Water.pdf">ENG</a>
+                    <a class="arm-version" target="_blank" href="/img/The_Amazing_Transformation_of_Water_arm.PDF">ARM</a>
                 </div>
-
                 <div class="col-sm-3 col-xs-12 text-center">
                     <img src="../img/pdf-icon.svg" alt="">
                     <h5>Eco-scavenger hunt</h5>
-                    <a target="_blank" href="/sample-lessons/Eco-ScavengerHunt.pdf">ENG</a>
-                    <a class="arm-version" target="_blank" href="/sample-lessons/Eco-Treasure_Box_and_Eco-Scavenger_hunt_arm.PDF">ARM</a>
+                    <a target="_blank" href="/img/Eco-ScavengerHunt.pdf">ENG</a>
+                    <a class="arm-version" target="_blank" href="/img/Eco-Treasure_Box_and_Eco-Scavenger_hunt_arm.PDF">ARM</a>
                 </div>
 
                 <div class="col-sm-3 col-xs-12 text-center">
                     <img src="../img/pdf-icon.svg" alt="">
                     <h5>Eco-treasure box</h5>
-                    <a class="arm-version" target="_blank" href="/sample-lessons/Eco-Treasure_Box_and_Eco-Scavenger_hunt_arm.PDF">ARM</a>
+                    <a class="arm-version" target="_blank" href="/img/Eco-Treasure_Box_and_Eco-Scavenger_hunt_arm.PDF">ARM</a>
                 </div>
             </div>
         </div>
     </section>
-
-
     <section class="community-last-section">
         <div class="container">
             <div class="row">
@@ -87,7 +78,6 @@
                     <h4>FEATURED CONTENT</h4>
                 </div>
                 <div class="row">
-
                 </div>
             </div>
             <div class="row">
@@ -117,7 +107,6 @@
         </div>
     </section>
 
-
     <!--Footer Section-->
 
     <section class="footer">
@@ -146,7 +135,6 @@
                         </li>
                     </ul>
                 </div>
-
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"> </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <p> <span> Armenia Tree Project </span> <br> 400 West Cummings Park <br> Suite 3900, Woburn, MA 01801 USA <br> 617-926-TREE (8733)</p>
@@ -175,35 +163,16 @@
         </div>
     </section>
 
-
     <!-- jQuery -->
     <script src="{{ asset('js/jquery.js') }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
-
     <!-- Custom Js Files-->
     <script src="{{ asset('js/main.js') }}"></script>
 
-
-
-
-
     </body>
     </html>
-    {#<hr>#}
-    {#<table>#}
-    {#{% for object in pager.currentPageResults %}#}
-    {#<tr>#}
-    {#<td>{{ object.Title }}</td>#}
-    {#<td>{{ object.Text }}</td>#}
-    {#</tr>#}
-    {#{% endfor %}#}
-    {#</table>#}
 
-    {#{% if pager.haveToPaginate %}#}
-    {#{{ pagerfanta(pager) }}#}
-    {#{% endif %}#}
-    {#<hr>#}
 {% endblock %}
