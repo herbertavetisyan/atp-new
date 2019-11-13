@@ -38,25 +38,20 @@ body {
 }
 
 
-h2, h3, h4, h5, h6 {
-    font-family: "GoogleSans-Bold", sans-serif;
-    margin: 0;
-}
 
-p, a {
+
+.english{
     font-family: "GoogleSans-Regular", sans-serif;
+    margin: 0;
 }
 
 
-.armenian h2, h3, h4, h5, h6 {
+.armenian {
     font-family: "NotoSans-Regular", sans-serif;
     margin: 0;
 }
 
-.armenian p, a {
-    font-family: "NotoSans-Regular", sans-serif;
-    margin: 0;
-}
+
 
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;

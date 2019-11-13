@@ -79,7 +79,7 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @Route("/index", name="index")
+     * @Route("/", name="index")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */

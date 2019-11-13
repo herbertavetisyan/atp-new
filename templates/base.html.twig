@@ -43,7 +43,7 @@
     {% if app.session.get('lang') == 'hy' %}
     <body class="armenian">
     {% else %}
-    <body>
+    <body class="english">
     {% endif %}
         {% block nav %}
             <!-- Navigation -->
@@ -188,51 +188,37 @@
                                  <button class="donate-btn">{% trans from "messages" into lang %} DONATE {% endtrans %}</button>
                                 </a>
                             </li>
-
-                            <li class="dropdown hidden">
-                                <a id="language_switcher" class="page-scroll"  href="#"  role="button"
-                                   aria-haspopup="true" aria-expanded="false">EN</a>
-                            <ul class="dropdown-menu" aria-labelledby="language_switcher">
-                                <li>
-                                    {% if app.request.locale == 'en' %}
-                                        <a href="#" style="color: #6FD054;">EN</a>
-                                    {% else %}
-                                        <a href="#">EN</a>
-                                    {% endif %}
-                                </li>
-                                <li>
-                                    {% if app.request.locale == 'hy' %}
-                                        <a href="#" style="color: #6FD054;">ՀԱՅ</a>
-                                    {% else %}
-                                        <a href="#">ՀԱՅ</a>
-                                    {% endif %}
-                                </li>
-                                <li>
-                                    {% if app.request.locale == 'hy' %}
-                                        <a href="#" style="color: #6FD054;">ՀԱՅ</a>
-                                    {% else %}
-                                        <a href="#">ՀԱՅ</a>
-                                    {% endif %}
-                                </li>
-                            </ul>
-
-                            </li>
-
                             <ul class="admin-language-switcher" aria-labelledby="language_selector">
                                 <li>
-                                    {% if app.session.get('lang') == 'en' %}
+                                    {% if app.session.get('lang') == 'en' and app.request.pathInfo != '/' %}
                                         <a href="{{ app.request.pathInfo }}" style="color: #6FD054;">EN</a>
                                     {% else %}
-                                        {% set path = app.request.pathInfo|replace({'/hy/':'/en/'}) %}
-                                        <a href="{{ path }}">EN</a>
+                                        {% if app.request.pathInfo == '/' %}
+                                            {% set path = app.request.pathInfo|replace({'/':'/?lang=en'}) %}
+                                            <a href="{{ path }}">EN</a>
+                                        {% elseif '/?lang' in app.request.pathInfo %}
+                                            {% set path = app.request.pathInfo|replace({'hy':'en'}) %}
+                                            <a href="{{ path }}">EN</a>
+                                        {% else %}
+                                            {% set path = app.request.pathInfo|replace({'/hy':'/en'}) %}
+                                            <a href="{{ path }}">EN</a>
+                                        {% endif %}
                                     {% endif %}
                                 </li>
                                 <li>
-                                    {% if app.session.get('lang') == 'hy' %}
+                                    {% if app.session.get('lang') == 'hy' and app.request.pathInfo != '/' %}
                                         <a href="{{ app.request.pathInfo }}" style="color: #6FD054;">ՀԱՅ</a>
                                     {% else %}
-                                        {% set path = app.request.pathInfo|replace({'/en/':'/hy/'}) %}
-                                        <a href="{{ path }}">ՀԱՅ</a>
+                                        {% if app.request.pathInfo == '/' %}
+                                            {% set path = app.request.pathInfo|replace({'/':'/?lang=hy'}) %}
+                                            <a href="{{ path }}">ՀԱՅ</a>
+                                        {% elseif '/?lang' in app.request.pathInfo %}
+                                            {% set path = app.request.pathInfo|replace({'/hy':'/en'}) %}
+                                            <a href="{{ path }}">ՀԱՅ</a>
+                                        {% else %}
+                                            {% set path = app.request.pathInfo|replace({'/en':'/hy'}) %}
+                                            <a href="{{ path }}">ՀԱՅ</a>
+                                        {% endif %}
                                     {% endif %}
                                 </li>
                             </ul>
