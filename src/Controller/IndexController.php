@@ -183,6 +183,7 @@ class IndexController extends AbstractController
      */
     public function economic(Request $request)
     {
+        dump($request->attributes->get("_route"));
         $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
 dump($features);die;
         return $this->render('index/economic.html.twig', [

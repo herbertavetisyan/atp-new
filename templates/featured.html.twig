@@ -22,6 +22,7 @@
                                         <h3>{{ item.title|raw }}</h3>
                                     {% endautoescape %}
                                     {% if item.LinkType == 'Read More' %}
+                                        <p>{{ item.createdAt.format('d M, Y') }}</p>
                                         <a target="_blank" href="/{{ lang }}/{{ item.Link }}">Read More</a>
                                     {% elseif item.LinkType == 'Donate' %}
                                         <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
@@ -89,6 +90,7 @@
                                 <h3>{{ item.title|raw }}</h3>
                             {% endautoescape %}
                             {% if item.LinkType == 'Read More' %}
+                                <p>{{ item.createdAt.format('d M, Y') }}</p>
                                 <a target="_blank" href="/{{ lang }}/{{ item.Link }}">Read More</a>
                             {% elseif item.LinkType == 'Donate' %}
                                 <a class="donate-link" href="{{ path('donation', {"lang": app.request.locale}) }}">
