@@ -50,7 +50,8 @@ class EntityListener implements EventSubscriber
             $reflect = new \ReflectionClass($entity);
         } catch (\ReflectionException $e) {
         }
-        if ($reflect->getShortName() === 'Events') {
+        if ($reflect->getShortName() === 'Event') {
+//            dump($entity);die;
 
             $eventbrite = new Eventbrite();
             $eventbrite->createEvent($entity);

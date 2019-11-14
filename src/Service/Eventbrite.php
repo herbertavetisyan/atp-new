@@ -75,7 +75,7 @@ class Eventbrite
               \"html\": \"<p>".$event->getTitle()."</p>\"
             },
             \"description\": {
-              \"html\": \"<p>".$event->getDescription()."</p>\"
+              \"html\": \"<p>".$event->getText()."</p>\"
             },
             \"start\": {
               \"timezone\": \"America/Los_Angeles\",
