@@ -1,0 +1,10 @@
+.armenian {
+    font-family: "NotoSans-Regular", sans-serif;
+    margin-bottom: 200px;
+}
+
+.armenian h2, h3, h4, h5, h6 {
+    font-family: "NotoSans-Bold", sans-serif;
+    margin: 0;
+    font-weight: 700 !important;
+}

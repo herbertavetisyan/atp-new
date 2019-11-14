@@ -50,7 +50,6 @@ class FeatureRepository extends ServiceEntityRepository
             ->leftJoin("feature.entityLang", "entityLang")
             ->innerJoin("feature.tag", "tags", 'WITH', 'tags.text=:tag')
             ->setParameter('tag', $linkName)
-            ->orderBy('tags.title', 'ASC')
             ->setMaxResults(6);
 
         return $qb->getQuery()->getResult();

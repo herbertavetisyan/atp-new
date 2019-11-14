@@ -18,6 +18,13 @@
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <!-- Custom CSS -->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        {% if app.session.get('lang') == 'hy' %}
+            <!-- Armenian CSS -->
+            <link href="{{ asset('css/armenianFonts.css') }}" rel="stylesheet">
+        {% else %}
+            <!-- English CSS -->
+            <link href="{{ asset('css/englishFonts.css') }}" rel="stylesheet">
+        {% endif %}
         <!-- Twentytwenty CSS -->
         <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet">
         <!-- Twentytwenty CSS -->

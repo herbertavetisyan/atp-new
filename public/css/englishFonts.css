@@ -1,0 +1,9 @@
+.english{
+    font-family: "GoogleSans-Regular", sans-serif;
+    margin-bottom: 200px;
+}
+
+.english h2, h3, h4, h5, h6 {
+    font-family: "GoogleSans-Bold", sans-serif;
+    margin: 0;
+}
