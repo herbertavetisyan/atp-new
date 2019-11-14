@@ -30,13 +30,12 @@ class FeatureRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder("feature");
         $qb
             ->select("feature, entityLang, tags")
-            ->leftJoin("feature.entityLang", "entityLang", 'WITH', 'lang')
+            ->leftJoin("feature.entityLang", "entityLang", 'WITH', 'entityLang.lang=:lang')
             ->innerJoin("feature.tag", "tags", 'WITH', 'tags.text=:tag')
             ->setParameter('lang', $lang)
             ->setParameter('tag', $linkName)
             ->setMaxResults(3);
-
-        dump($qb->getQuery()->getDQL());die();
+//        dump($qb->getQuery()->getDQL());die();
         return $qb->getQuery()->getResult();
     }
 
