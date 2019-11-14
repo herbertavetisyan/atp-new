@@ -32,23 +32,16 @@ html {
     min-height: 100%;
 }
 
-body {
-    /* Margin bottom by footer height */
-    margin-bottom: 200px;
-}
-
-
-
 
 .english{
     font-family: "GoogleSans-Regular", sans-serif;
-    margin: 0;
+    margin-bottom: 200px;
 }
 
 
 .armenian {
     font-family: "NotoSans-Regular", sans-serif;
-    margin: 0;
+    margin-bottom: 200px;
 }
 
 
