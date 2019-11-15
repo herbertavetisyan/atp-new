@@ -212,7 +212,9 @@ class IndexController extends AbstractController
      */
     public function forestation(Request $request)
     {
-        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
+        $lang = ucfirst($request->getLocale());
+
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"), $lang);
 
         return $this->render('index/forestation.html.twig', [
             'features' => $features
@@ -226,7 +228,9 @@ class IndexController extends AbstractController
      */
     public function where(Request $request)
     {
-        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
+        $lang = ucfirst($request->getLocale());
+
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"), $lang);
 
         return $this->render('index/where.html.twig', [
             'features' => $features
@@ -240,7 +244,9 @@ class IndexController extends AbstractController
      */
     public function education(Request $request)
     {
-        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
+        $lang = ucfirst($request->getLocale());
+
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"), $lang);
 
         return $this->render('index/education.html.twig', [
             'features' => $features
@@ -311,8 +317,10 @@ class IndexController extends AbstractController
      */
     public function mission(Request $request)
     {
-        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
-//dump($features);die;
+        $lang = ucfirst($request->getLocale());
+
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"), $lang);
+
         return $this->render('index/our-mission.html.twig', [
             'features' => $features
         ]);

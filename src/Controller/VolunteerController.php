@@ -119,7 +119,7 @@ class VolunteerController extends AbstractController
 
         $content = $this->ambassadorManager->getAmbassadors($lang);
 
-        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"), $lang);
 
         return $this->render('index/ambassador.html.twig', [
             'form' => $form->createView(),
