@@ -118,48 +118,9 @@
                 </div>
             </div>
         </section>
-
-        <section class="community-last-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h4>FEATURED CONTENT</h4>
-                    </div>
-                    <div class="row">
-
-                    </div>
-                </div>
-                <div class="row">
-{#                    {% for item in bottom %}#}
-{#                        {% if item.Position == 'first' %}#}
-{#                            <div class="col-md-6">#}
-{#                                <div class="first-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">#}
-{#                        {% elseif item.Position == 'second' %}#}
-{#                            <div class="col-md-3">#}
-{#                                <div class="second-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">#}
-{#                        {% elseif item.Position == 'third' %}#}
-{#                            <div class="col-md-3">#}
-{#                                <div class="third-content" style="background: url('../uploads/images/{{ item.Image }}') no-repeat; background-size: cover; height: 400px;">#}
-{#                        {% endif %}#}
-{#                        {% autoescape %}#}
-{#                            <h3>#}
-{#                                {{ item.Text|raw }}#}
-{#                            </h3>#}
-{#                        {% endautoescape %}#}
-{#                        {% if item.LinkType == 'outter' %}#}
-{#                            <a href="{{ item.Link }}">#}
-{#                                <button> Donate</button>#}
-{#                            </a>#}
-{#                        {% elseif item.LinkType == 'inner' %}#}
-{#                            <p>{{ item.createdAt.format('d M, Y') }}</p>#}
-{#                            <a href="{{ item.Link }}">Read More</a>#}
-{#                        {% endif %}#}
-{#                                </div>#}
-{#                            </div>#}
-{#                    {% endfor %}#}
-                </div>
-            </div>
-        </section>
+        {% block feature %}
+            {{ include('featured.html.twig') }}
+        {% endblock %}
     </div>
 
 

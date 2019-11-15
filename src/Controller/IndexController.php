@@ -141,10 +141,10 @@ class IndexController extends AbstractController
     {
         $lang = ucfirst($request->getLocale());
 
-        $feature = $this->featureManager->findByLinkName($request->attributes->get("_route"), $lang);
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"), $lang);
 
         return $this->render('index/backyard-nurseries.html.twig', [
-            "bottom" => $feature
+            "features" => $features
         ]);
     }
 
