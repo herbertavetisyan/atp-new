@@ -289,7 +289,7 @@ easy_admin:
                     - { property: 'type' }
                     - { property: 'amount' }
                     - { property: 'name' }
-                    - { property: 'address', label: 'Address name' }
+                    - { property: 'address', label: 'A d d r e s s | n a m e' }
                     - { property: 'email' }
                     - { property: 'phone' }
                     - { property: 'employer' }
