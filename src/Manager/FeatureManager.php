@@ -50,7 +50,7 @@ class FeatureManager extends BaseManager implements ManagerInterface
     public function findByLinkName($linkName, $lang)
     {
         if ($linkName == 'index'){
-            return $this->repository->findByLinkNameIndex($linkName);
+            return $this->repository->findByLinkNameIndex($linkName, $lang);
         }
         return $this->repository->findByLinkName($linkName, $lang);
     }

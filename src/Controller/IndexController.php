@@ -117,7 +117,7 @@ class IndexController extends AbstractController
             $allEvents = null;
         }
 
-        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"), $lang);
 
         $topEvents = $this->eventManager->homePageEvents($lang);
 
@@ -137,9 +137,11 @@ class IndexController extends AbstractController
      * @Route("/backyard", name="backyard")
      * @return
      */
-    public function backyardNurseries()
+    public function backyardNurseries(Request $request)
     {
-        $feature = $this->featureManager->findBy();
+        $lang = ucfirst($request->getLocale());
+
+        $feature = $this->featureManager->findByLinkName($request->attributes->get("_route"), $lang);
 
         return $this->render('index/backyard-nurseries.html.twig', [
             "bottom" => $feature
@@ -153,7 +155,9 @@ class IndexController extends AbstractController
      */
     public function community(Request $request)
     {
-        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"));
+        $lang = ucfirst($request->getLocale());
+
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"), $lang);
 
         return $this->render('index/community.html.twig', [
             'features' => $features
