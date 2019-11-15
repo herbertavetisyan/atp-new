@@ -153,7 +153,6 @@
                 <div class="row">
                     {% for item in content %}
                         {% if total == 1 %}
-                        <div class="row">
                         {% endif %}
                         <div class="col-md-6 col-xs-12">
                             <div class="photo-and-text-wrapper">
@@ -178,7 +177,6 @@
                             {% endautoescape %}
                         </div>
                         {% if total == 3 %}
-                        </div>
                         {% endif %}
                         {% set total = total + 1 %}
                     {% endfor %}
