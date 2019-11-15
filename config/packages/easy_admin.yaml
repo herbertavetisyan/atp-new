@@ -284,12 +284,12 @@ easy_admin:
                 title: "Donations"
                 fields:
                     - { property: 'id' }
-                    - { property: 'transactionId' }
-                    - { property: 'transactionCode' }
+                    - { property: 'transactionId', label: 'tr.id' }
+                    - { property: 'transactionCode', label: 'tr.code' }
                     - { property: 'type' }
                     - { property: 'amount' }
                     - { property: 'name' }
-                    - { property: 'address' }
+                    - { property: 'address', label: 'Address name' }
                     - { property: 'email' }
                     - { property: 'phone' }
                     - { property: 'employer' }
