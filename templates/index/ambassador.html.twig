@@ -183,10 +183,13 @@
                         {% set total = total + 1 %}
                     {% endfor %}
 
+
+                </div>
+                <div class="row">
                     <div class="text-center">
-                    <a href="{{ path('bndonate',{ 'lang': app.request.locale }) }}">
-                        <button class="donate-btn">Donate</button>
-                    </a>
+                        <a href="{{ path('bndonate',{ 'lang': app.request.locale }) }}">
+                            <button class="donate-btn">Donate</button>
+                        </a>
                     </div>
                 </div>
             </div>
