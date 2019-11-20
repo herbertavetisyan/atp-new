@@ -275,29 +275,3 @@ easy_admin:
             search:
                 fields:
                     - property: 'entityLang.title'
-
-        Donation:
-            class: App\Entity\Donation
-            label: 'Donation List'
-            disabled_actions: ['new', 'edit']
-            list:
-                title: "Donations"
-                fields:
-                    - { property: 'id' }
-                    - { property: 'transactionId', label: 'tr.id' }
-                    - { property: 'transactionCode', label: 'tr.code' }
-                    - { property: 'type' }
-                    - { property: 'amount' }
-                    - { property: 'name' }
-                    - { property: 'address', label: 'A d d r e s s | n a m e' }
-                    - { property: 'email' }
-                    - { property: 'phone' }
-                    - { property: 'employer' }
-                    - { property: 'certificate' }
-                    - { property: 'createdAt' }
-            show:
-                fields:
-                    - { property: 'id' }
-                    - { property: 'amount' }
-                    - { property: 'text'  }
-                    - { property: 'image', type: 'image', base_path: '%app.path.images%' }
