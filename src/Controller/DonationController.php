@@ -168,14 +168,14 @@ class DonationController extends AbstractController
             }
         }
 
-        $count2 = count($donations);
-        if($count1 == $count2){
-            foreach ($donations as $key => $value) {
-                if ($value->getTransactionStatus() != '0') {
-                    unset($donations[$key]);
-                }
-            }
-        }
+//        $count2 = count($donations);
+//        if($count1 == $count2){
+//            foreach ($donations as $key => $value) {
+//                if ($value->getTransactionStatus() != '0') {
+//                    unset($donations[$key]);
+//                }
+//            }
+//        }
 
 
 //        $adapter = new ArrayAdapter($donations);
