@@ -74,7 +74,7 @@ class DonationController extends AbstractController
     }
 
     /**
-     * @Route("/adm/donationslist/{page}", name="donationslist")
+     * @Route("/adm/donationslist", name="donationslist")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
@@ -180,7 +180,7 @@ class DonationController extends AbstractController
 
         $adapter = new ArrayAdapter($donations);
         $pager =  new Pagerfanta($adapter);
-        $pager->setMaxPerPage(20);
+        $pager->setMaxPerPage(50000);
         try  {
             $pager->setCurrentPage($page);
         }
