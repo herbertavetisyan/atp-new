@@ -12,7 +12,7 @@
                         <a href="{{ path('index',{'lang': app.session.get('lang') }) }}">Home Page</a>
                     </li>
                     <li>
-{#                        <a href="{{ path('admin', {'lang': app.session.get('lang') }) }}">Admin Panel</a>#}
+                        <a href="/admin">Admin Panel</a>
                     </li>
                 </ul>
             </div>
@@ -81,7 +81,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for item in pager.currentPageResults %}
+                    {% for item in pager %}
                         <tr>
                             <th scope="row">{{ item.transactionId }}</th>
                             <th>{{ item.transactionStatus }}</th>
@@ -101,11 +101,11 @@
                 </table>
             </div>
 
-            {% if pager.haveToPaginate %}
-                <div class="pagerfanta">
-                    {{ pagerfanta(pager, 'my_view_1') }}
-                </div>
-            {% endif %}
+{#            {% if pager.haveToPaginate %}#}
+{#                <div class="pagerfanta">#}
+{#                    {{ pagerfanta(pager, 'my_view_1') }}#}
+{#                </div>#}
+{#            {% endif %}#}
         </div>
     </div>
 

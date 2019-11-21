@@ -179,17 +179,18 @@ class DonationController extends AbstractController
 
 
         $adapter = new ArrayAdapter($donations);
-        $pager =  new Pagerfanta($adapter);
-        $pager->setMaxPerPage(50000);
-        try  {
-            $pager->setCurrentPage($page);
-        }
-        catch(NotValidCurrentPageException $e) {
-            throw new NotFoundHttpException('Illegal page');
-        }
+//        $pager =  new Pagerfanta($adapter);
+//        $pager->setMaxPerPage(50000);
+//        try  {
+//            $pager->setCurrentPage($page);
+//        }
+//        catch(NotValidCurrentPageException $e) {
+//            throw new NotFoundHttpException('Illegal page');
+//        }
 
         return $this->render('donation/index.html.twig', [
-            'pager' => $pager,
+//            'pager' => $pager,
+            'pager' => $adapter,
             'form' => $form->createView()
         ]);
     }
