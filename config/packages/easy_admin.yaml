@@ -279,7 +279,7 @@ easy_admin:
         Donation:
             class: App\Entity\Donation
             label: 'Donation List'
-            disabled_actions: ['new', 'edit']
+            disabled_actions: ['new', 'edit', 'delete']
             list:
                 title: "Donations"
                 fields:
@@ -289,7 +289,7 @@ easy_admin:
                     - { property: 'type' }
                     - { property: 'amount' }
                     - { property: 'name' }
-                    - { property: 'address', label: '      A d d r e s s | n a m e     ' }
+                    - { property: 'address', label: ' A d d r e s s | n a m e ' }
                     - { property: 'email' }
                     - { property: 'phone' }
                     - { property: 'employer' }
