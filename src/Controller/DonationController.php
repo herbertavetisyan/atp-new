@@ -178,7 +178,7 @@ class DonationController extends AbstractController
         }
 
 
-        $adapter = new ArrayAdapter($donations);
+//        $adapter = new ArrayAdapter($donations);
 //        $pager =  new Pagerfanta($adapter);
 //        $pager->setMaxPerPage(50000);
 //        try  {
@@ -190,7 +190,7 @@ class DonationController extends AbstractController
 
         return $this->render('donation/index.html.twig', [
 //            'pager' => $pager,
-            'pager' => $adapter,
+            'pager' => $donations,
             'form' => $form->createView()
         ]);
     }
