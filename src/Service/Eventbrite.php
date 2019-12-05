@@ -8,7 +8,7 @@ class Eventbrite
 
     public function __construct()
     {
-        $this->token = '4CC3LNJNOZHCYCLT4ZAW';
+        $this->token = '432DB3J2JHR4QB54GB42';
     }
 
     public function getEvents()
