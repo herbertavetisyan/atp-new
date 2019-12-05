@@ -54,6 +54,7 @@ class EventController extends AbstractController
 
         $eventbrite = new Eventbrite();
         $response = $eventbrite->getEvents();
+//        dump($response);die;
         $events = $response['events'];
 
         if($events == null){

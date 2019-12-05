@@ -89,7 +89,8 @@ class IndexController extends AbstractController
 
         $eventbrite = new Eventbrite();
         $response = $eventbrite->getEvents();
-        $events = $response['event'];
+//        dump($response);die;
+        $events = $response['events'];
 
         if($events != null) {
             for ($i = 0; $i < count($events); $i++) {
