@@ -230,51 +230,51 @@
     <script src="{{ asset('js/pignose.calendar.js') }}"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> -->
 
-    <script>
-        const $calendar = $('.calendar');
+{#    <script>#}
+{#        const $calendar = $('.calendar');#}
 
-        const schedules = {{ events|json_encode|raw }};
+{#        const schedules = {{ events|json_encode|raw }};#}
 
-        $(function() {
-            $calendar.pignoseCalendar({
-                scheduleOptions: {
-                    colors: {
-                        event: '#6FD054',
-                    }
-                },
+{#        $(function() {#}
+{#            $calendar.pignoseCalendar({#}
+{#                scheduleOptions: {#}
+{#                    colors: {#}
+{#                        event: '#6FD054',#}
+{#                    }#}
+{#                },#}
 
-                schedules: schedules,
+{#                schedules: schedules,#}
 
-                select: function(date, context) {
-                    const $eventsDescription = $('.events-description').html('');
+{#                select: function(date, context) {#}
+{#                    const $eventsDescription = $('.events-description').html('');#}
 
-                    if (context.storage.schedules.length > 0) {
-                        const schedule = context.storage.schedules[0];
+{#                    if (context.storage.schedules.length > 0) {#}
+{#                        const schedule = context.storage.schedules[0];#}
 
-                        $eventsDescription.append(
-                            '<div class="row event-item-one">' +
-                            "<h4>" + moment(schedule.date).format("MMMM D") + "</h4>" +
-                            "<h3>" + schedule.eventTitle + "</h3>" +
-                            "<p>" + schedule.eventDescription + "</p>" +
-                            "<h6>" + schedule.eventDestination +  "</h6>" +
-                            '</div>'
-                        );
-                    } else {
-                        $eventsDescription.append(
-                            '<div class="text-center">' +
-                                "<h5>No Event </h5>" +
-                            '</div>'
-                        );
-                    }
-                },
+{#                        $eventsDescription.append(#}
+{#                            '<div class="row event-item-one">' +#}
+{#                            "<h4>" + moment(schedule.date).format("MMMM D") + "</h4>" +#}
+{#                            "<h3>" + schedule.eventTitle + "</h3>" +#}
+{#                            "<p>" + schedule.eventDescription + "</p>" +#}
+{#                            "<h6>" + schedule.eventDestination +  "</h6>" +#}
+{#                            '</div>'#}
+{#                        );#}
+{#                    } else {#}
+{#                        $eventsDescription.append(#}
+{#                            '<div class="text-center">' +#}
+{#                                "<h5>No Event </h5>" +#}
+{#                            '</div>'#}
+{#                        );#}
+{#                    }#}
+{#                },#}
 
-                init: function () {
-                    const firstEvent = schedules[0];
+{#                init: function () {#}
+{#                    const firstEvent = schedules[0];#}
 
-                    $calendar.find(`[data-date=${firstEvent.date}]`).trigger('click');
-                }
-            });
-        });
-    </script>
+{#                    $calendar.find(`[data-date=${firstEvent.date}]`).trigger('click');#}
+{#                }#}
+{#            });#}
+{#        });#}
+{#    </script>#}
 
 {% endblock %}

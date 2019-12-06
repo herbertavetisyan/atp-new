@@ -1266,6 +1266,41 @@ ul.dropdown-menu > li.sub-dropdown:hover > ul.sub-dropdown-group {
     padding: 0 20px;
 }
 
+.community-second .summit-page-btn {
+    width: 265px;
+    height: 35px;
+    background-color: #333;
+    border-color: #333;
+    color: #fff;
+    font-size: 13px;
+    border-radius: 4px;
+    font-family: "Google Sans", sans-serif;
+    margin-top: 30px;
+    padding: 0 5px;
+    margin-right: 10px;
+}
+.fb-links-wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 60px;
+}
+
+.fb-links-wrapper .fb-green-icon {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.fb-links-wrapper a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #333333;
+}
+.fb-links-wrapper .single-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
 .info-text-wrapper {
     padding: 50px 0 0 60px;
 }
@@ -4741,7 +4776,7 @@ ul.dropdown-menu > li.sub-dropdown:hover > ul.sub-dropdown-group {
 }
 
 .forestry-summit {
-    background: url("../img/forest-summit-bck.png") no-repeat;
+    background: url("../img/forest-summit-cover.jpg") no-repeat center;
     background-size: cover;
 }
 
