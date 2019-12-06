@@ -735,9 +735,15 @@ class IndexController extends AbstractController
     /**
      * @Route("/forestsummit", name="forestsummit")
      */
-    public function forestsummit()
+    public function forestsummit(Request $request)
     {
-        return $this->render('index/forestsummit.html.twig');
+        $lang = ucfirst($request->getLocale());
+
+        $features = $this->featureManager->findByLinkName($request->attributes->get("_route"), $lang);
+
+        return $this->render('index/forestsummit.html.twig', [
+            'features' => $features
+        ]);
     }
 
     /**

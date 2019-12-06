@@ -86,14 +86,31 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <h3>SUMMIT CO-SPONSORS</h3>
+                        <h3 style="font-weight: 700">SUMMIT CO-SPONSORS</h3>
                         <div class="co-sponsors-logo-wrapper">
                             <img class="acopian-center-logo" src="../img/AUA_ACE_RGB_HL-1.png" alt="">
                             <img class="atp-logo" src="../img/logo_black.svg" alt="">
                         </div>
+                        <h3 class="summit-sponsors-title">THANK YOU TO OUR GENEROUS SPONSORS!</h3>
+                        <div class="summit-sponsors-wrapper">
+                            <div>
+                                <h4>Gold Sponsor(s)</h4>
+                                <p>The Estate of Berj Medjelian</p>
+                            </div>
+                            <div>
+                                <h4>Silver Sponsor(s)</h4>
+                                <p>Mardigian Foundation</p>
+                            </div>
+                            <div>
+                                <h4>Bronze Sponsor(s)</h4>
+                                <p>Nshan and Mary Goudsouzian</p>
+                                <p>Peter and Irene Vosbikian</p>
+                                <p>Judith Saryan ans Victor Zarougian</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row select-project-for-support">
+                <div class="row contact-for-support">
                     <div class="col-xs-12">
                         <h4>Support ATP’s 25th Anniversary today! Contact us for more <br>
                             information at: <span>jeanmarie@armeniatree.org</span>
@@ -103,7 +120,9 @@
             </div>
         </section>
 
-
+        {% block feature %}
+            {{ include('featured.html.twig') }}
+        {% endblock %}
         <!--Footer Section-->
 
         <section class="footer">

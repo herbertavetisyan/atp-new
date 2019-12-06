@@ -1301,6 +1301,23 @@ ul.dropdown-menu > li.sub-dropdown:hover > ul.sub-dropdown-group {
     margin-bottom: 30px;
 }
 
+.summit-sponsors-wrapper {
+    display: flex;
+}
+
+.summit-sponsors-wrapper div{
+    margin-right: 45px;
+}
+
+.community-second .summit-sponsors-wrapper h4{
+    margin-bottom: 0;
+}
+
+.summit-sponsors-title {
+    margin: 40px 0;
+    font-weight: 700;
+}
+
 .info-text-wrapper {
     padding: 50px 0 0 60px;
 }
@@ -4832,8 +4849,8 @@ ul.dropdown-menu > li.sub-dropdown:hover > ul.sub-dropdown-group {
     width: 150px;
 }
 
-.select-project-for-support {
-    padding-bottom: 50px;
+.contact-for-support {
+    padding-bottom: 30px !important;
 }
 
 .select-project-for-support a:hover {
@@ -4844,15 +4861,15 @@ ul.dropdown-menu > li.sub-dropdown:hover > ul.sub-dropdown-group {
    margin-bottom: 60px;
 }
 
-.select-project-for-support h4 {
+.contact-for-support h4 {
     font-family: "GoogleSans-Regular", sans-serif;
     color: #707070;
     font-size: 20px;
     font-weight: 400;
-    margin-bottom: 60px;
+    margin-bottom: 0;
 }
 
-.select-project-for-support h4 span{
+.contact-for-support h4 span{
     color: #6FD054;
 }
 
