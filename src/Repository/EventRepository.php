@@ -31,6 +31,7 @@ class EventRepository extends ServiceEntityRepository
             ->where("l.lang = :lang")
             ->andWhere("e.isActive = 1")
             ->setParameter('lang', $lang)
+            ->orderBy('e.startDate', 'DESC')
             ->getQuery();
 
         $result = $qb->getResult();
